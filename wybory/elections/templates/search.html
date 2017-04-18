@@ -7,8 +7,10 @@
 </head>
 <body>
             
-            {% for name in names %}
-                <div> {{name}} </div>
+            {% for x in names %}
+        <p>
+                <a href="../../{{ x.path() }}">{{ x.name }} , wojewódstwo {{x.okreg.wojewodztwo.name}}</a>
+        </p>
             {% endfor %}
 </body>
 </html>

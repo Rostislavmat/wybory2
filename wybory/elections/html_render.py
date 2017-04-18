@@ -18,8 +18,8 @@ def renderIndex(region):
     return renderHTML(region, title, True)
 
 
-def wojewodztwo(wojewodztwo_slug):
-    w = Wojewodztwo.objects.get(slug=wojewodztwo_slug)
+def wojewodztwo(wojewodztwo_name):
+    w = Wojewodztwo.objects.get(name=wojewodztwo_name)
     return renderWojewodztwo(w)
 
 
@@ -28,24 +28,21 @@ def renderWojewodztwo(region):
     return renderHTML( region, title)
 
 
-def powiat(wojewodztwo_slug, powiat_slug):
-    w = Wojewodztwo.objects.get(slug=wojewodztwo_slug)
-    p = Powiat.objects.get(slug=powiat_slug, wojewodztwo=w)
-    return renderPowiat(r , p)
+def okreg(okreg_name):
+    p = Okreg.objects.get(name=okreg_name)
+    return renderOkreg(p)
 
 
-def renderPowiat( region):
-    title = 'Powiat {0}'.format(region.name)
+def renderOkreg( region):
+    title = 'Okreg {0}'.format(region.name)
     return renderHTML( region, title)
 
 
-def gmina(wojewodztwo_slug, powiat_slug, gmina_slug):
-    w = Wojewodztwo.objects.get(slug=wojewodztwo_slug)
-    p = Powiat.objects.get(slug=powiat_slug, wojewodztwo=w)
-    g = Gmina.objects.get(powiat=p, slug=gmina_slug)
-    return renderGmina(r , g)
+def gmina(gmina_name):
+    g = Gmina.objects.get(code=gmina_name)
+    return renderGmina(g)
 
 
 def renderGmina( region):
     title = 'Gmina {0}'.format(region.name)
-    return renderSimplifiedHTML(r , region, title)
+    return renderSimplifiedHTML(region, title)
