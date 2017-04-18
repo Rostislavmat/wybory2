@@ -35,29 +35,30 @@ function drawMarkersMap() {
 </script>
 
 {% endif %}
+<p> <a href="../../.."> Kraj </a></p>
 <p>
-<nav> <a href="../../search"> search </a> </nav>
+<nav> <a href="../../search"> Wyszykiwanie </a> </nav>
 </p>
 <p>
-<nav> <a href="../../login"> login </a> </nav>
+<nav> <a href="./login"> Login </a> </nav>
 </p>
 <p>
-<nav> <a href="../../logout"> logout </a> </nav>
+<nav> <a href="./logout"> Logout </a> </nav>
 </p>
 {% if change is defined %}
 <p>
-<nav> <a href="./change"> change </a> </nav>
+<nav> <a href="./change"> Zmień </a> </nav>
 </p>
 {% endif %}
 <div class="general_stats">
     <p>
-    Uprawnionych: {{ region_info.voters }}
+    Uprawnionych: {{ region_info.max_votes }}
     </p>
     <p>
-    Kart ważnych: {{ region_info.ballots }}
+    Kart ważnych: {{ region_info.valid_votes }}
     </p>
     <p>
-    Frekwencja: {{ "%.2f" % (region_info.ballots / region_info.voters * 100) | float }}%
+    Frekwencja: {{ "%.2f" % (region_info.valid_votes / region_info.max_votes * 100) | float }}%
     </p>
 </div>
 
@@ -141,13 +142,13 @@ function drawMarkersMap() {
             </div>
         </td>
         <td class="responsive_hide">
-            {{ w.voters }}
+            {{ w.max_votes }}
         </td>
         <td class="responsive_hide">
-            {{ w.ballots }}
+            {{ w.valid_votes }}
         </td>
         <td>
-            {{ "%.2f" % (w.ballots / w.voters * 100) | float }}%
+            {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
         </td>
     </tr>
     {% endfor %}

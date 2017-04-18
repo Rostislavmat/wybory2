@@ -44,7 +44,7 @@ def buildJSONData():
     rows = []
 
     for w in Wojewodztwo.objects.all():
-        turnout = w.ballots / w.voters * 100
+        turnout = w.valid_votes / w.max_votes * 100
         vals = []
         turnout_str = '{0}%'.format(round(turnout, 2))
         vals.append({'v': w.name, 'f': None})

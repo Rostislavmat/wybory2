@@ -42,20 +42,20 @@ def populate():
                 vote = constructVote(wojewodztwo, okreg, gmina, candidate, row[i])
                 all_votes.append(vote)
 
-            voters = int(row[6])
-            ballots = int(row[7])
+            max_votes = int(row[6])
+            valid_votes = int(row[7])
 
-            gmina.voters += voters
-            gmina.ballots += ballots
+            gmina.max_votes += max_votes
+            gmina.valid_votes += valid_votes
 
-            okreg.voters += voters
-            okreg.ballots += ballots
+            okreg.max_votes += max_votes
+            okreg.valid_votes += valid_votes
 
-            wojewodztwo.voters += voters
-            wojewodztwo.ballots += ballots
+            wojewodztwo.max_votes += max_votes
+            wojewodztwo.valid_votes += valid_votes
 
-            kraj.voters += voters
-            kraj.ballots += ballots
+            kraj.max_votes += max_votes
+            kraj.valid_votes += valid_votes
 
             gmina.save()
             okreg.save()

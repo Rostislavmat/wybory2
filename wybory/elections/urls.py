@@ -8,9 +8,9 @@ app_name = 'elections'
 
 
 urlpatterns = [
-    url(r'^search/$' , views.search , name = "wyszukiwanie"),
-    url(r'^login/$' , views.my_login , name = "login"),
-    url(r'^logout/$' , views.my_logout , name = "logout"),
+    url(r'search$' , views.search , name = "wyszukiwanie"),
+    url(r'login$' , views.my_login , name = "login"),
+    url(r'logout$' , views.my_logout , name = "logout"),
     url(r'^$', views.index, name='index'),
     url(r'^woje/(?P<wojewodztwo_name>[^/]+)/$', views.wojewodztwo, name='wojewodztwo'),
     url(r'^okreg/(?P<okreg_name>[^/]+)/$', views.okreg, name='okreg'),

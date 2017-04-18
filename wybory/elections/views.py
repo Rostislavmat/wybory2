@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from .forms import *
 from .models import *
 from django.db import transaction
-from . import html_render as html
 import django
 from django.http import HttpResponseRedirect
 from .models import *
+from .utility import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 
@@ -44,14 +44,23 @@ def my_logout(request):
 
 
 def index(request):
-    return HttpResponse(html.index(request))
+    kraj = Kraj.objects.all()[0]
+    title = 'Cały kraj'
+    return renderHTML(request,kraj, title, True)
 def wojewodztwo(request, wojewodztwo_name):
+    woj = Wojewodztwo.objects.get(name=wojewodztwo_name)
+    title = 'Wojewodztwo {0}'.format(woj.name)
+    return renderHTML( request, woj, title)
     #return index(request)
     return HttpResponse(html.wojewodztwo(request,wojewodztwo_name))
 def okreg(request, okreg_name):
-    return HttpResponse(html.okreg(request,okreg_name))
+    okr = Okreg.objects.get(name=okreg_name)
+    title = 'Okreg {0}'.format(okr.name)
+    return renderHTML( request ,okr, title)
 def gmina(request, gmina_name):
-    return HttpResponse(html.gmina(request,gmina_name))
+    gm = Gmina.objects.get(code=gmina_name)
+    title = 'Gmina {0}'.format(gm.name)
+    return renderSimplifiedHTML(request,gm, title)
 
 def change(request, gmina_name):
     user = request.user
@@ -67,16 +76,16 @@ def change(request, gmina_name):
                     vote, _ = Vote.objects.get_or_create(gmina__code=gmina_name,candidate=candidate1)
                     vote.votes = int(form.data[candidate1.name+"_now"])
                     vote.save()
-                gmina1.voters+=sum
+                gmina1.max_votes+=sum
                 gmina1.save()
                 okreg1, _ = Okreg.objects.get_or_create(name = gmina1.okreg)
-                okreg1.voters+=sum
+                okreg1.max_votes+=sum
                 okreg1.save()
                 woje1, _ = Wojewodztwo.objects.get_or_create(name = okreg1.wojewodztwo)
-                woje1.voters+=sum
+                woje1.max_votes+=sum
                 woje1.save()
                 kraj, _ = Kraj.objects.get_or_create(name = 'Polska')
-                kraj.voters+=sum
+                kraj.max_votes+=sum
                 kraj.save()
             return HttpResponseRedirect("/gmina/"+gmina_name)
         else:
@@ -88,5 +97,6 @@ def change(request, gmina_name):
             return render(request,'change.html',vals)
     else:
         return my_login(request,"/gmina/"+gmina_name+ "/change/")
+
 
 

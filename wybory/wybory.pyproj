@@ -35,7 +35,6 @@
     <Compile Include="elections\forms.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="elections\html_render.py" />
     <Compile Include="elections\models.py" />
     <Compile Include="elections\parse.py" />
     <Compile Include="elections\templatetags\arrays.py">

@@ -7,8 +7,8 @@ from django.conf import settings
 
 class Region(models.Model):
     name = models.CharField(max_length=200)
-    voters = models.IntegerField(default=0)
-    ballots = models.IntegerField(default=0)
+    max_votes = models.IntegerField(default=0)
+    valid_votes = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         super(Region, self).save(*args, **kwargs)
