@@ -43,7 +43,7 @@ function drawMarkersMap() {
     google.visualization.events.addListener(chart, 'select', function () {
         var selection = chart.getSelection();
         if (selection.length > 0) {
-            window.location = './' + slugify(data.getValue(selection[0].row, 0)) + '/index.html';
+            window.location = './' + slugify(data.getValue(selection[0].row, 0));
         }
     });
     chart.draw(data, options);

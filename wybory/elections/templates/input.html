@@ -6,10 +6,11 @@
     <title></title>
 </head>
 <body>
-    <form action="/team_name_url/" method="post">
-    <input name="csrfmiddlewaretoken" value="{{ csrf_token2 }}">
+    <nav> <nav> <a href="../"> back </a> </nav>
+    <form action="/search/" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <label for="team_name">Enter name: </label>
-    <input id="team_name" type="text" name="name_field" value="123">
+    <input id="team_name" type="text" name="name_field" value="B">
     <input type="submit" value="OK">
     </form>
 </body>

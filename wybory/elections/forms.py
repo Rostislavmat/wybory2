@@ -1,4 +1,7 @@
 from django import forms
 
-class PostForm():
-        fields = ('title',)
+class PostForm(forms.Form):
+    class Meta:
+        fields = ["title"]
+        def clean(self):
+            x = 1

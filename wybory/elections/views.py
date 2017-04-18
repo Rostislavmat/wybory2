@@ -4,18 +4,20 @@ from .forms import PostForm
 from . import html_render as html
 from django.views.decorators.csrf import csrf_exempt
 import django
+from django.http import HttpResponseRedirect
+from .models import *
 
 
-@csrf_exempt
 def search(request):
-    token1 = django.middleware.csrf.get_token(request)
     if request.method == 'POST':
         form = PostForm(request.POST)
-        print(form)
-        return HttpResponseRedirect("/search/")
+        q = Gmina.objects.filter(name__startswith = form.data["name_field"])
+        #q = Gmina.search("B")
+        vals = { 'names' : q,}
+        return HttpResponse(render(request,'search.html',vals))
     else:
         form = PostForm()
-        return HttpResponse(html.input(token1))
+        return render(request,'input.html')
 def index(request):
     return HttpResponse(html.index())
 
