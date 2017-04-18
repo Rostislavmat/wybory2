@@ -36,9 +36,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="elections\html_render.py" />
-    <Compile Include="elections\jinja2.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="elections\models.py" />
     <Compile Include="elections\parse.py" />
     <Compile Include="elections\templatetags\arrays.py">
@@ -71,7 +68,10 @@
     <Content Include="elections\static\style.css" />
     <Content Include="elections\static\style_mobile.css" />
     <Content Include="elections\templates\base.html" />
+    <Content Include="elections\templates\change.html" />
+    <Content Include="elections\templates\error.html" />
     <Content Include="elections\templates\input.html" />
+    <Content Include="elections\templates\login.html" />
     <Content Include="elections\templates\search.html" />
     <Content Include="elections\templates\stats.html" />
     <Content Include="elections\templates\style.css" />

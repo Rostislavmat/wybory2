@@ -107,7 +107,8 @@ class Vote(models.Model):
     okreg = models.ForeignKey(Okreg)
     candidate = models.ForeignKey(Candidate)
     votes = models.IntegerField()
-
+    def getGmina(self):
+        return gmina.code
     def __str__(self):
         return 'In {0}, {1}, {2}, {3} people voted for {4}'.format(self.wojewodztwo,
                                                                    self.gmina,

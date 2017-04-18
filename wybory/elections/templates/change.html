@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <nav> <a href="../"> powrót </a> </nav>
+    <form action="{{gmina}}/change/" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+     {%for x in candidates%}
+        <p>
+        <input type="hidden" name="{{x.candidate}}_was" value="{{ x.votes }}">
+        <label for="{{x.candidate}}"> Nowa wartość dla kandydata {{x.candidate}}: </label>
+        <input id="{{x.candidate}}" type="text" name="{{x.candidate}}_now" value="{{ x.votes }}">
+        </p>
+        {%endfor%}
+    <input type="submit" value="OK">
+    </form>
+</body>
+</html>

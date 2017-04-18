@@ -10,24 +10,8 @@
 google.load('visualization', '1', {'packages': ['geochart']});
 google.charts.load('current', {'packages':['corechart']});
 google.setOnLoadCallback(drawMarkersMap);
-//google.charts.setOnLoadCallback(drawChart);
-function slugify(text)
-{
-  str = text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
-    // remove accents, swap ñ for n, etc
-  var from = "ąężźóćłśń/_,:;";
-  var to   = "aezzoclsn-----";
-  for (var i=0, l=from.length ; i<l ; i++) {
-    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-  }
-    return str;
-}
 function drawMarkersMap() {
-    var jsonData = `{{ data }}`
+    var jsonData = {{ data|safe }}
     var data = new google.visualization.DataTable(jsonData);
     var options = {
         region: 'PL',
@@ -43,23 +27,28 @@ function drawMarkersMap() {
     google.visualization.events.addListener(chart, 'select', function () {
         var selection = chart.getSelection();
         if (selection.length > 0) {
-            window.location = './woje/' + (data.getValue(selection[0].row, 0));
+            window.location = './woje/' + data.getValue(selection[0].row, 0);
         }
     });
-    chart.draw(data, options);
-};
-function drawChart() {
-    var data = new google.visualization.DataTable(jsonData);
-    var options = {
-        title: 'Głosy'
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
 };
 </script>
 
 {% endif %}
-
+<p>
+<nav> <a href="../../search"> search </a> </nav>
+</p>
+<p>
+<nav> <a href="../../login"> login </a> </nav>
+</p>
+<p>
+<nav> <a href="../../logout"> logout </a> </nav>
+</p>
+{% if change is defined %}
+<p>
+<nav> <a href="./change"> change </a> </nav>
+</p>
+{% endif %}
 <div class="general_stats">
     <p>
     Uprawnionych: {{ region_info.voters }}
@@ -71,7 +60,7 @@ function drawChart() {
     Frekwencja: {{ "%.2f" % (region_info.ballots / region_info.voters * 100) | float }}%
     </p>
 </div>
-<nav> <a href="../../search"> search </a> </nav>
+
 <div id="charts">
 
     {% if data is defined %}

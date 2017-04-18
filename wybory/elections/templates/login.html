@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <nav> <a href="../"> powrót </a> </nav>
+    <form action="/login/" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <label for="name">Login: </label>
+    <input id="name" type="text" name="name_" value="">
+    <label for="password">Hasło: </label>
+    <input id="password" type="text" name="pass_" value="">
+    <input type="submit" value="OK">
+    </form>
+</body>
+</html>

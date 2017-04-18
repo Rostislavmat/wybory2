@@ -8,11 +8,8 @@ from django.db.models import *
 from functools import reduce
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
+import html.parser
 from django.conf import settings
-
-
-
 
 def renderHTML(request , region, title, json=False):
     q = region.buildQ()
@@ -35,6 +32,7 @@ def renderSimplifiedHTML(request,region, title):
             'region_info': region,
             'title': title,
             }
+    vals['change'] = 'test'
     return render( request, 'stats.html', vals)
 
 
