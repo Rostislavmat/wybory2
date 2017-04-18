@@ -6,19 +6,15 @@ import random
 from elections.models import *
 from django.db.models import *
 from functools import reduce
-
+from django.shortcuts import render
 from django.template.loader import render_to_string
 
 from django.conf import settings
-def render(tpl_path, context):
-    path, filename = os.path.split(tpl_path)
-    return jinja2.Environment(
-        loader=jinja2.FileSystemLoader(path or './'),
-    ).get_template(filename).render(context)
 
 
 
-def renderHTML( region, title, json=False):
+
+def renderHTML(request , region, title, json=False):
     q = region.buildQ()
 
     vals = {'candidates_stats': buildCandidatesStats(q),
@@ -29,25 +25,17 @@ def renderHTML( region, title, json=False):
             }
     if json:
         vals['data'] = buildJSONData()
-    return render('elections/templates/stats.html', vals)
+    return render(request,'stats.html', vals)
 
-def renderInput(token):
-    vals = {' csrf_token2' : token }
-    return render('elections/templates/input.html' , vals)
 
-def renderSearch(x):
-    q = Gmina.objects.filter(name__startswith = x)
-    #q = Gmina.search("B")
-    vals = { 'names' : q,}
-    return render('elections/templates/search.html' , vals)
 
-def renderSimplifiedHTML(region, title):
+def renderSimplifiedHTML(request,region, title):
     q = region.buildQ()
     vals = {'candidates_stats': buildCandidatesStats(q),
             'region_info': region,
             'title': title,
             }
-    return render( 'elections/templates/stats.html', vals)
+    return render( request, 'stats.html', vals)
 
 
 def buildJSONData():

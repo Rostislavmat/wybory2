@@ -12,23 +12,19 @@ def search(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         q = Gmina.objects.filter(name__startswith = form.data["name_field"])
-        #q = Gmina.search("B")
         vals = { 'names' : q,}
         return HttpResponse(render(request,'search.html',vals))
     else:
         form = PostForm()
         return render(request,'input.html')
+
+
+
 def index(request):
-    return HttpResponse(html.index())
-
-
+    return HttpResponse(html.index(request))
 def wojewodztwo(request, wojewodztwo_name):
-    return HttpResponse(html.wojewodztwo(wojewodztwo_name))
-
-
+    return HttpResponse(html.wojewodztwo(request,wojewodztwo_name))
 def okreg(request, okreg_name):
-    return HttpResponse(html.okreg(okreg_name))
-
-
+    return HttpResponse(html.okreg(request,okreg_name))
 def gmina(request, gmina_name):
-    return HttpResponse(html.gmina(gmina_name))
+    return HttpResponse(html.gmina(request,gmina_name))
