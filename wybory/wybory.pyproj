@@ -45,7 +45,6 @@
     </Compile>
     <Compile Include="elections\tests.py" />
     <Compile Include="elections\urls.py" />
-    <Compile Include="elections\utility.py" />
     <Compile Include="elections\views.py" />
     <Compile Include="elections\__init__.py" />
     <Compile Include="manage.py" />

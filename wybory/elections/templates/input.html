@@ -9,8 +9,10 @@
     <nav> <a href="./"> powrót </a> </nav>
     <form action="./search" method="post">
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <p>
     <label for="nazwa">Nazwa gminy: </label>
     <input id="nazwa" type="text" name="name_field" value="">
+           </p>
     <input type="submit" value="OK">
     </form>
 </body>

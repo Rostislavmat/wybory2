@@ -3,19 +3,29 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <link href="/static/style.css" media="screen and (min-width: 450px)" rel="stylesheet" type="text/css"/>
+    <link href="/static/style_mobile.css" media="screen and (max-width: 450px)" rel="stylesheet" type="text/css"/>
+    <title>Zmiana</title>
 </head>
 <body>
     <nav> <a href="../"> powrót </a> </nav>
     <form action="./" method="post">
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+     <table> 
      {%for x in candidates%}
-        <p>
+        <tr>
+        <th>
         <input type="hidden" name="{{x.candidate}}_was" value="{{ x.votes }}">
+
         <label for="{{x.candidate}}"> Nowa wartość dla kandydata {{x.candidate}}: </label>
+
         <input id="{{x.candidate}}" type="text" name="{{x.candidate}}_now" value="{{ x.votes }}">
-        </p>
+                </th>
+        </tr>
+
+
         {%endfor%}
+     </table>
     <input type="submit" value="OK">
     </form>
 </body>

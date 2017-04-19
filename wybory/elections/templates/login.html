@@ -9,10 +9,14 @@
     <nav> <a href="./"> powrót </a> </nav>
     <form action="./" method="post">
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <p>
     <label for="name">Login: </label>
     <input id="name" type="text" name="name_" value="">
+            </p>
+        <p>
     <label for="password">Hasło: </label>
     <input id="password" type="text" name="pass_" value="">
+            </p>
     <input type="submit" value="OK">
     </form>
 </body>
