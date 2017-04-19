@@ -1,0 +1,59 @@
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    overflow-x:auto;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.map_chart {
+    margin : 0px;
+    padding: 0px;
+    display : flex;
+    flex-wrap : wrap;
+    flex-direction: row;
+}
+
+strong {
+    color : red;
+}
+
+#Głosy {
+        margin : 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    width : 900px;
+    height : 700px;
+    max-width : 700px;
+}
+
+h1,h2 {
+  color : orange;
+}
+
+
+
+
+#table_wyniki {
+    overflow-x:auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+footer {
+  margin-top  : 50px;
+    clear: both;
+}
+

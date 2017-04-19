@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w gminieWieliczki</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 5],
+        ['Piotr IKONOWICZ', 2],
+            ['Jarosław KALINOWSKI', 178],
+            ['Janusz KORWIN-MIKKE', 2],
+            ['Marian KRZAKLEWSKI', 133],
+            ['Aleksander KWAŚNIEWSKI', 708],
+            ['Andrzej LEPPER', 132],
+            ['Jan ŁOPUSZAŃSKI', 9],
+            ['Andrzej Marian OLECHOWSKI', 96],
+            ['Bogdan PAWŁOWSKI', 0],
+            ['Lech WAŁĘSA', 6],
+            ['Tadeusz Adam WILECKI', 3]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w gminie <strong>Wieliczki </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th >Data</th>
+                    <th>Avaliable</th>
+                    <th> in </th>
+                    <th> reasonable </th>
+                    <th> format </th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

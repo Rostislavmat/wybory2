@@ -3,15 +3,29 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <link href="/static/style.css" media="screen and (min-width: 450px)" rel="stylesheet" type="text/css"/>
+    <link href="/static/style_mobile.css" media="screen and (max-width: 450px)" rel="stylesheet" type="text/css"/>
+    <title>Wyniki wyszukiwania</title>
 </head>
 <body>
             <nav> <a href="./"> powrót </a> </nav>
-            
-            {% for x in names %}
-        <p>
-                <a href="../../{{ x.path() }}">{{ x.name }} , wojewódstwo {{x.okreg.wojewodztwo.name}}</a>
-        </p>
-            {% endfor %}
+            <table>
+                <tr>
+                <th>
+                    Nazwa
+                </th>
+                </tr>
+                {% for x in names %}
+                <tr>
+                    <th>
+                        <a href="../../{{ x.path() }}">{{ x.name }} , wojewódstwo {{x.okreg.wojewodztwo.name}}</a>
+                    </th>
+
+
+                </tr>
+                {%endfor%}
+            </table>
 </body>
 </html>
+
+

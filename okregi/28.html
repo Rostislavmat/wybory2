@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w okręgu 28</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 2886],
+        ['Piotr IKONOWICZ', 1556],
+            ['Jarosław KALINOWSKI', 7448],
+            ['Janusz KORWIN-MIKKE', 12300],
+            ['Marian KRZAKLEWSKI', 120238],
+            ['Aleksander KWAŚNIEWSKI', 241101],
+            ['Andrzej LEPPER', 3515],
+            ['Jan ŁOPUSZAŃSKI', 6780],
+            ['Andrzej Marian OLECHOWSKI', 151519],
+            ['Bogdan PAWŁOWSKI', 771],
+            ['Lech WAŁĘSA', 7697],
+            ['Tadeusz Adam WILECKI', 936]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w okręgu <strong>28 </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Okręg</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Warszawa-Centrum.html"> Warszawa-Centrum </a> </td>
+                    <td class="hided"> 750381</td>
+                    <td> 499582</td>
+                    <td class="hided"> 2762</td>
+                    <td class="hided"> 1490</td>
+                    <td class="hided"> 6487</td>
+                    <td class="hided"> 11535</td>
+                    <td class="hided"> 98769</td>
+                    <td class="hided"> 223189</td>
+                    <td class="hided"> 3212</td>
+                    <td class="hided"> 5619</td>
+                    <td class="hided"> 138492</td>
+                    <td class="hided"> 724</td>
+                    <td class="hided"> 6504</td>
+                    <td class="hided"> 799</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Zagranica.html"> Zagranica </a> </td>
+                    <td class="hided"> 69625</td>
+                    <td> 57165</td>
+                    <td class="hided"> 124</td>
+                    <td class="hided"> 66</td>
+                    <td class="hided"> 961</td>
+                    <td class="hided"> 765</td>
+                    <td class="hided"> 21469</td>
+                    <td class="hided"> 17912</td>
+                    <td class="hided"> 303</td>
+                    <td class="hided"> 1161</td>
+                    <td class="hided"> 13027</td>
+                    <td class="hided"> 47</td>
+                    <td class="hided"> 1193</td>
+                    <td class="hided"> 137</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

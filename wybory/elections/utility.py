@@ -11,32 +11,25 @@ from django.template.loader import render_to_string
 import html.parser
 from django.conf import settings
 
-def renderHTML(request , region, title, json=False):
+def renderHTML(request , region, title, kraj=False , simple = False):
     q = region.buildQ()
-
-    vals = {'candidates_stats': buildCandidatesStats(q),
-            'regions_data': buildRegionsData(region.subunit().objects.filter(q)),
-            'region_info': region,
+    vals = {'region_info': region,
             'title': title,
-            'unit': region.subunit_str,
+            'data_pie' : buildPieChartData(q),
             }
-    if json:
-        vals['data'] = buildJSONData()
+    if simple:
+        vals['change'] = 'change'
+    else:
+            if kraj:
+                vals['data'] = buildMapData()
+            vals['regions_data'] =  (region.subunit().objects.filter(q))
+            vals['unit'] = region.subunit_str;
     return render(request,'stats.html', vals)
 
 
 
-def renderSimplifiedHTML(request,region, title):
-    q = region.buildQ()
-    vals = {'candidates_stats': buildCandidatesStats(q),
-            'region_info': region,
-            'title': title,
-            }
-    vals['change'] = 'test'
-    return render( request, 'stats.html', vals)
 
-
-def buildJSONData():
+def buildMapData():
     data = {}
     cols = [{'label': 'County', 'type': 'string'},
             {'label': 'Frekwencja', 'type': 'number'}]
@@ -62,7 +55,7 @@ def getCandidatesVotes(candidates, q=Q()):
     votes = list(map(lambda c: Vote.objects.filter(q).filter(
         candidate=c).aggregate(Sum('votes'))['votes__sum'], candidates))
     total = reduce(lambda x, y: x + y, votes)
-    votes = list(map(lambda c: c / total * 100, votes))
+    votes = list(map(lambda c: c, votes))
     return votes
 
 
@@ -70,44 +63,7 @@ def getCandidates():
     return Candidate.objects.all().order_by('name')
 
 
-def buildRow(candidates, q=Q()):
-    votes = getCandidatesVotes(candidates, q)
-    total = list(zip(candidates, votes))
-    total.sort(key=lambda tup: tup[1])
-    total = total[::-1]
-    mx = total[0][1]
-    total = list(map(lambda x: (x[0], x[1], x[1] / mx * 100), total))
-    return total
 
-
-def buildCandidatesStats(q=Q()):
-    candidates = getCandidates()
-    return buildRow(candidates, q)
-
-
-def buildColors():
-
-    h = 320
-    l = 20
-    s = 80
-
-    h_step = -10
-    l_step = 3
-    s_step = -3
-
-    cols = []
-
-    for i in range(12):
-        col = 'hsl({0}, {1}%, {2}%)'.format(h, s, l)
-        if i % 2 == 0:
-            cols.append(col)
-        cols.insert(0, col)
-
-        h += h_step
-        l += l_step
-        s += s_step
-
-    return cols
 
 
 def getCandidatesAndVotes(q=Q()):
@@ -119,28 +75,18 @@ def getCandidatesAndVotes(q=Q()):
 
     return total
 
-
-def buildHorizontalBar(q=Q()):
-    cols = buildColors()
-    votes = getCandidatesAndVotes(q)
-    res = zip(votes, cols)
-    res = map(lambda x: (str(x[0][0]), x[0][1], x[1]), res)
-    res = list(res)
-    return res
-
-
 def buildPieChartData(q=Q()):
     getCandidatesAndVotes(q)
 
     data = {}
     cols = [{'label': 'Kandydat', 'type': 'string'},
-            {'label': 'Procent głosów', 'type': 'number'}]
+            {'label': 'Liczba głosów', 'type': 'number'}]
 
     rows = []
-
+    total = getCandidatesAndVotes(q)
     for w in total:
         vals = []
-        turnout_str = '{0}%'.format(round(w[1], 2))
+        turnout_str = '{0}'.format(round(w[1], 2))
         vals.append({'v': str(w[0]), 'f': None})
         vals.append({'v': w[1], 'f': turnout_str})
         rows.append({'c': vals})
@@ -151,8 +97,3 @@ def buildPieChartData(q=Q()):
     json_data = json.dumps(data, sort_keys=True, indent=4)
     return json_data
 
-
-def buildRegionsData(objects):
-    for o in objects:
-        o.bar = buildHorizontalBar(o.buildQ())
-    return objects

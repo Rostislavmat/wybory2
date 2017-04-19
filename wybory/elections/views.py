@@ -46,7 +46,7 @@ def my_logout(request):
 def index(request):
     kraj = Kraj.objects.all()[0]
     title = 'Cały kraj'
-    return renderHTML(request,kraj, title, True)
+    return renderHTML(request,kraj, title, kraj=True)
 def wojewodztwo(request, wojewodztwo_name):
     woj = Wojewodztwo.objects.get(name=wojewodztwo_name)
     title = 'Wojewodztwo {0}'.format(woj.name)
@@ -60,7 +60,7 @@ def okreg(request, okreg_name):
 def gmina(request, gmina_name):
     gm = Gmina.objects.get(code=gmina_name)
     title = 'Gmina {0}'.format(gm.name)
-    return renderSimplifiedHTML(request,gm, title)
+    return renderHTML(request,gm, title,simple=True)
 
 def change(request, gmina_name):
     user = request.user
@@ -76,16 +76,16 @@ def change(request, gmina_name):
                     vote, _ = Vote.objects.get_or_create(gmina__code=gmina_name,candidate=candidate1)
                     vote.votes = int(form.data[candidate1.name+"_now"])
                     vote.save()
-                gmina1.max_votes+=sum
+                gmina1.valid_votes+=sum
                 gmina1.save()
                 okreg1, _ = Okreg.objects.get_or_create(name = gmina1.okreg)
-                okreg1.max_votes+=sum
+                okreg1.valid_votes+=sum
                 okreg1.save()
                 woje1, _ = Wojewodztwo.objects.get_or_create(name = okreg1.wojewodztwo)
-                woje1.max_votes+=sum
+                woje1.valid_votes+=sum
                 woje1.save()
                 kraj, _ = Kraj.objects.get_or_create(name = 'Polska')
-                kraj.max_votes+=sum
+                kraj.valid_votes+=sum
                 kraj.save()
             return HttpResponseRedirect("/gmina/"+gmina_name)
         else:

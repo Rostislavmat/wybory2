@@ -1,0 +1,13 @@
+#Głosy {
+    width : 80%;
+    max-height : 350px;
+}
+
+
+#Mapa {
+  width : 90%;
+}
+
+.hided {
+  display : none
+}

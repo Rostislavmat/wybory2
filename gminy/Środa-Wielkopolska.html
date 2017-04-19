@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w gminieŚroda Wielkopolska</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 52],
+        ['Piotr IKONOWICZ', 30],
+            ['Jarosław KALINOWSKI', 609],
+            ['Janusz KORWIN-MIKKE', 303],
+            ['Marian KRZAKLEWSKI', 1305],
+            ['Aleksander KWAŚNIEWSKI', 10598],
+            ['Andrzej LEPPER', 606],
+            ['Jan ŁOPUSZAŃSKI', 64],
+            ['Andrzej Marian OLECHOWSKI', 1993],
+            ['Bogdan PAWŁOWSKI', 11],
+            ['Lech WAŁĘSA', 89],
+            ['Tadeusz Adam WILECKI', 17]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w gminie <strong>Środa Wielkopolska </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th >Data</th>
+                    <th>Avaliable</th>
+                    <th> in </th>
+                    <th> reasonable </th>
+                    <th> format </th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

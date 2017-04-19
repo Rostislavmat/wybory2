@@ -16,9 +16,9 @@ th, td {
     text-align: left;
 }
 
-tr:nth-child(even) {background-color: #F1F5FF}
+tr:nth-child(even) {background-color: #9a5d08}
 
-tr:hover {background-color: #CAD3E8}
+tr:hover {background-color: #cdd6eb}
 
 
 .horizontal_bar_chart {

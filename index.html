@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w kraju</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 89002],
+        ['Piotr IKONOWICZ', 38672],
+            ['Jarosław KALINOWSKI', 1047949],
+            ['Janusz KORWIN-MIKKE', 252499],
+            ['Marian KRZAKLEWSKI', 2739621],
+            ['Aleksander KWAŚNIEWSKI', 9485224],
+            ['Andrzej LEPPER', 537570],
+            ['Jan ŁOPUSZAŃSKI', 139682],
+            ['Andrzej Marian OLECHOWSKI', 3044141],
+            ['Bogdan PAWŁOWSKI', 17164],
+            ['Lech WAŁĘSA', 178590],
+            ['Tadeusz Adam WILECKI', 28805]
+          ]);
+
+
+
+        var options = {
+            title: 'Podział głosów',
+            pieHole: 0.1,
+            pieResidueSliceLabel: "Pozostali",
+            legend: { position: 'left', maxLines: 100 },
+            //chartArea : { left:20 , right : 40 } ,
+            sliceVisibilityThreshold: .03
+        };
+
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+        chart.draw(data, options);
+
+
+
+        var data2 = google.visualization.arrayToDataTable([
+            ['Wojewódstwo', 'Frekwencja'],
+            
+                ['OPOLSKIE', { v: 50.626354146149296 , f: '50.626354146149296%'}],
+            
+                ['ŚLĄSKIE', { v: 60.21860398911283 , f: '60.21860398911283%'}],
+            
+                ['WARMIŃSKO-MAZURSKIE', { v: 57.54912205216465 , f: '57.54912205216465%'}],
+            
+                ['POMORSKIE', { v: 62.12911499056766 , f: '62.12911499056766%'}],
+            
+                ['PODKARPACKIE', { v: 60.69300803018096 , f: '60.69300803018096%'}],
+            
+                ['LUBUSKIE', { v: 60.43277251724651 , f: '60.43277251724651%'}],
+            
+                ['ZACHODNIOPOMORSKIE', { v: 59.58255427644287 , f: '59.58255427644287%'}],
+            
+                ['KUJAWSKO-POMORSKIE', { v: 61.46855378018275 , f: '61.46855378018275%'}],
+            
+                ['LUBELSKIE', { v: 58.31714248344253 , f: '58.31714248344253%'}],
+            
+                ['ŁÓDZKIE', { v: 60.707881986536584 , f: '60.707881986536584%'}],
+            
+                ['PODLASKIE', { v: 57.84815331102384 , f: '57.84815331102384%'}],
+            
+                ['ŚWIĘTOKRZYSKIE', { v: 58.14733746396924 , f: '58.14733746396924%'}],
+            
+                ['DOLNOŚLĄSKIE', { v: 60.00789976159015 , f: '60.00789976159015%'}],
+            
+                ['MAŁOPOLSKIE', { v: 61.34543526454883 , f: '61.34543526454883%'}],
+            
+                ['WIELKOPOLSKIE', { v: 65.83251676488885 , f: '65.83251676488885%'}],
+            
+                ['MAZOWIECKIE', { v: 60.70970888933013 , f: '60.70970888933013%'}],
+            
+        ]);
+
+        var options2 = {
+            region: 'PL',
+            resolution: 'provinces',
+            datalessRegionColor: 'transparent',
+            colorAxis: { colors: ['#c3c90a', '#d65906', '#8c0106'] },
+
+        };
+
+        var chart2 = new google.visualization.GeoChart(document.getElementById('Mapa'));
+        google.visualization.events.addListener(chart2, 'select', function () {
+            var selection = chart2.getSelection();
+            if (selection.length > 0) {
+                window.open('woje/' + data2.getValue(selection[0].row, 0) + '.html', "_self");
+            }
+        });
+        chart2.draw(data2, options2);
+        }
+
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> <strong> Wybory w kraju </strong> </h1>
+    </header>
+    <nav>
+        <a href="index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+        <figure id="Mapa">
+        </figure>
+    </div>
+    <h2>Proporcja</h2>
+    <div class="div_in_div" style="width : 100% ;   background:darkred">
+        <div style = "width: 99.49427575636889% ;   background: blue">
+            <div style = "width: 99.77914229976076% ;   background: pink">
+                <div style = "width: 94.00186420601393% ;   background: yellow">
+                    <div style = "width: 98.46255587185424% ;   background: green">
+                        <div style = "width: 83.05821908468704% ;   background: darkred">
+                            <div style = "width: 29.37905065051638% ;  background: blueviolet">
+                                <div style = "width: 86.37667158647648% ;   background: cyan">
+                                    <div style = "width: 95.90180912820217% ;   background : lightcoral">
+                                        <div style = "width: 6.869978890690488% ; background: aquamarine">
+                                            <div style = "width: 92.35657444146082% ;  background: mediumvioletred">
+                                                <div style = "width: 13.888955857180743% ;  background: yellowgreen">
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Województwo</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/OPOLSKIE.html"> OPOLSKIE </a> </td>
+                    <td class="hided"> 812320</td>
+                    <td> 411248</td>
+                    <td class="hided"> 1963</td>
+                    <td class="hided"> 768</td>
+                    <td class="hided"> 15288</td>
+                    <td class="hided"> 6108</td>
+                    <td class="hided"> 61590</td>
+                    <td class="hided"> 225373</td>
+                    <td class="hided"> 13208</td>
+                    <td class="hided"> 2270</td>
+                    <td class="hided"> 77545</td>
+                    <td class="hided"> 357</td>
+                    <td class="hided"> 6297</td>
+                    <td class="hided"> 481</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/ŚLĄSKIE.html"> ŚLĄSKIE </a> </td>
+                    <td class="hided"> 3695358</td>
+                    <td> 2225293</td>
+                    <td class="hided"> 11792</td>
+                    <td class="hided"> 6129</td>
+                    <td class="hided"> 41089</td>
+                    <td class="hided"> 31310</td>
+                    <td class="hided"> 315426</td>
+                    <td class="hided"> 1325408</td>
+                    <td class="hided"> 40054</td>
+                    <td class="hided"> 11982</td>
+                    <td class="hided"> 411435</td>
+                    <td class="hided"> 1911</td>
+                    <td class="hided"> 25577</td>
+                    <td class="hided"> 3180</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/POMORSKIE.html"> POMORSKIE </a> </td>
+                    <td class="hided"> 1618898</td>
+                    <td> 1005807</td>
+                    <td class="hided"> 4574</td>
+                    <td class="hided"> 1697</td>
+                    <td class="hided"> 26199</td>
+                    <td class="hided"> 16328</td>
+                    <td class="hided"> 175513</td>
+                    <td class="hided"> 498589</td>
+                    <td class="hided"> 24578</td>
+                    <td class="hided"> 7154</td>
+                    <td class="hided"> 235571</td>
+                    <td class="hided"> 891</td>
+                    <td class="hided"> 13408</td>
+                    <td class="hided"> 1305</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/PODKARPACKIE.html"> PODKARPACKIE </a> </td>
+                    <td class="hided"> 1552767</td>
+                    <td> 942421</td>
+                    <td class="hided"> 7295</td>
+                    <td class="hided"> 1614</td>
+                    <td class="hided"> 90230</td>
+                    <td class="hided"> 12162</td>
+                    <td class="hided"> 251047</td>
+                    <td class="hided"> 370764</td>
+                    <td class="hided"> 41424</td>
+                    <td class="hided"> 13014</td>
+                    <td class="hided"> 141942</td>
+                    <td class="hided"> 1057</td>
+                    <td class="hided"> 9631</td>
+                    <td class="hided"> 2241</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/LUBUSKIE.html"> LUBUSKIE </a> </td>
+                    <td class="hided"> 759429</td>
+                    <td> 458944</td>
+                    <td class="hided"> 1992</td>
+                    <td class="hided"> 887</td>
+                    <td class="hided"> 11943</td>
+                    <td class="hided"> 5532</td>
+                    <td class="hided"> 54762</td>
+                    <td class="hided"> 302108</td>
+                    <td class="hided"> 10587</td>
+                    <td class="hided"> 1549</td>
+                    <td class="hided"> 64834</td>
+                    <td class="hided"> 336</td>
+                    <td class="hided"> 3793</td>
+                    <td class="hided"> 621</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/MAŁOPOLSKIE.html"> MAŁOPOLSKIE </a> </td>
+                    <td class="hided"> 2395210</td>
+                    <td> 1469352</td>
+                    <td class="hided"> 6839</td>
+                    <td class="hided"> 2665</td>
+                    <td class="hided"> 76503</td>
+                    <td class="hided"> 24673</td>
+                    <td class="hided"> 325240</td>
+                    <td class="hided"> 609687</td>
+                    <td class="hided"> 36733</td>
+                    <td class="hided"> 13273</td>
+                    <td class="hided"> 349834</td>
+                    <td class="hided"> 1261</td>
+                    <td class="hided"> 20376</td>
+                    <td class="hided"> 2268</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/KUJAWSKO-POMORSKIE.html"> KUJAWSKO-POMORSKIE </a> </td>
+                    <td class="hided"> 1567120</td>
+                    <td> 963286</td>
+                    <td class="hided"> 4301</td>
+                    <td class="hided"> 1963</td>
+                    <td class="hided"> 46891</td>
+                    <td class="hided"> 10838</td>
+                    <td class="hided"> 107587</td>
+                    <td class="hided"> 614307</td>
+                    <td class="hided"> 30577</td>
+                    <td class="hided"> 6094</td>
+                    <td class="hided"> 129817</td>
+                    <td class="hided"> 730</td>
+                    <td class="hided"> 8630</td>
+                    <td class="hided"> 1551</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/PODLASKIE.html"> PODLASKIE </a> </td>
+                    <td class="hided"> 909628</td>
+                    <td> 526203</td>
+                    <td class="hided"> 2622</td>
+                    <td class="hided"> 1133</td>
+                    <td class="hided"> 57421</td>
+                    <td class="hided"> 6137</td>
+                    <td class="hided"> 118171</td>
+                    <td class="hided"> 236593</td>
+                    <td class="hided"> 21626</td>
+                    <td class="hided"> 5509</td>
+                    <td class="hided"> 71230</td>
+                    <td class="hided"> 424</td>
+                    <td class="hided"> 4260</td>
+                    <td class="hided"> 1077</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/ŁÓDZKIE.html"> ŁÓDZKIE </a> </td>
+                    <td class="hided"> 2052376</td>
+                    <td> 1245954</td>
+                    <td class="hided"> 6216</td>
+                    <td class="hided"> 3655</td>
+                    <td class="hided"> 96241</td>
+                    <td class="hided"> 21085</td>
+                    <td class="hided"> 156408</td>
+                    <td class="hided"> 702442</td>
+                    <td class="hided"> 51901</td>
+                    <td class="hided"> 10214</td>
+                    <td class="hided"> 182351</td>
+                    <td class="hided"> 1572</td>
+                    <td class="hided"> 11126</td>
+                    <td class="hided"> 2743</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/ŚWIĘTOKRZYSKIE.html"> ŚWIĘTOKRZYSKIE </a> </td>
+                    <td class="hided"> 1009207</td>
+                    <td> 586827</td>
+                    <td class="hided"> 3225</td>
+                    <td class="hided"> 1610</td>
+                    <td class="hided"> 60444</td>
+                    <td class="hided"> 6804</td>
+                    <td class="hided"> 62271</td>
+                    <td class="hided"> 355071</td>
+                    <td class="hided"> 23465</td>
+                    <td class="hided"> 4956</td>
+                    <td class="hided"> 63596</td>
+                    <td class="hided"> 631</td>
+                    <td class="hided"> 3858</td>
+                    <td class="hided"> 896</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/DOLNOŚLĄSKIE.html"> DOLNOŚLĄSKIE </a> </td>
+                    <td class="hided"> 2258296</td>
+                    <td> 1355156</td>
+                    <td class="hided"> 6906</td>
+                    <td class="hided"> 2784</td>
+                    <td class="hided"> 37564</td>
+                    <td class="hided"> 19367</td>
+                    <td class="hided"> 193359</td>
+                    <td class="hided"> 804548</td>
+                    <td class="hided"> 32696</td>
+                    <td class="hided"> 8456</td>
+                    <td class="hided"> 234307</td>
+                    <td class="hided"> 1146</td>
+                    <td class="hided"> 11743</td>
+                    <td class="hided"> 2280</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/LUBELSKIE.html"> LUBELSKIE </a> </td>
+                    <td class="hided"> 1682020</td>
+                    <td> 980906</td>
+                    <td class="hided"> 5627</td>
+                    <td class="hided"> 2384</td>
+                    <td class="hided"> 165310</td>
+                    <td class="hided"> 13109</td>
+                    <td class="hided"> 160156</td>
+                    <td class="hided"> 437254</td>
+                    <td class="hided"> 54448</td>
+                    <td class="hided"> 10274</td>
+                    <td class="hided"> 120545</td>
+                    <td class="hided"> 1215</td>
+                    <td class="hided"> 8236</td>
+                    <td class="hided"> 2348</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/WARMIŃSKO-MAZURSKIE.html"> WARMIŃSKO-MAZURSKIE </a> </td>
+                    <td class="hided"> 1073754</td>
+                    <td> 617936</td>
+                    <td class="hided"> 2725</td>
+                    <td class="hided"> 1273</td>
+                    <td class="hided"> 26639</td>
+                    <td class="hided"> 7049</td>
+                    <td class="hided"> 73156</td>
+                    <td class="hided"> 393426</td>
+                    <td class="hided"> 18813</td>
+                    <td class="hided"> 4077</td>
+                    <td class="hided"> 85007</td>
+                    <td class="hided"> 517</td>
+                    <td class="hided"> 4441</td>
+                    <td class="hided"> 813</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/WIELKOPOLSKIE.html"> WIELKOPOLSKIE </a> </td>
+                    <td class="hided"> 2493157</td>
+                    <td> 1641308</td>
+                    <td class="hided"> 6593</td>
+                    <td class="hided"> 2814</td>
+                    <td class="hided"> 86806</td>
+                    <td class="hided"> 19400</td>
+                    <td class="hided"> 182069</td>
+                    <td class="hided"> 1010056</td>
+                    <td class="hided"> 52593</td>
+                    <td class="hided"> 9303</td>
+                    <td class="hided"> 253736</td>
+                    <td class="hided"> 1304</td>
+                    <td class="hided"> 14656</td>
+                    <td class="hided"> 1978</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/ZACHODNIOPOMORSKIE.html"> ZACHODNIOPOMORSKIE </a> </td>
+                    <td class="hided"> 1294300</td>
+                    <td> 771177</td>
+                    <td class="hided"> 3490</td>
+                    <td class="hided"> 1601</td>
+                    <td class="hided"> 17325</td>
+                    <td class="hided"> 10955</td>
+                    <td class="hided"> 85771</td>
+                    <td class="hided"> 493668</td>
+                    <td class="hided"> 22297</td>
+                    <td class="hided"> 3215</td>
+                    <td class="hided"> 124802</td>
+                    <td class="hided"> 662</td>
+                    <td class="hided"> 6398</td>
+                    <td class="hided"> 993</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="woje/MAZOWIECKIE.html"> MAZOWIECKIE </a> </td>
+                    <td class="hided"> 3948464</td>
+                    <td> 2397101</td>
+                    <td class="hided"> 12842</td>
+                    <td class="hided"> 5695</td>
+                    <td class="hided"> 192056</td>
+                    <td class="hided"> 41642</td>
+                    <td class="hided"> 417095</td>
+                    <td class="hided"> 1105930</td>
+                    <td class="hided"> 62570</td>
+                    <td class="hided"> 28342</td>
+                    <td class="hided"> 497589</td>
+                    <td class="hided"> 3150</td>
+                    <td class="hided"> 26160</td>
+                    <td class="hided"> 4030</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

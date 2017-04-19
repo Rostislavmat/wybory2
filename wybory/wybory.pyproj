@@ -73,7 +73,6 @@
     <Content Include="elections\templates\login.html" />
     <Content Include="elections\templates\search.html" />
     <Content Include="elections\templates\stats.html" />
-    <Content Include="elections\templates\style.css" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
   </ItemGroup>

@@ -1,159 +1,132 @@
-{% extends 'base.html' %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Wyniki: {{ title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <link href="/static/style.css" media="screen and (min-width: 450px)" rel="stylesheet" type="text/css"/>
+    <link href="/static/style_mobile.css" media="screen and (max-width: 450px)" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+        var jsondata = {{data_pie|safe}}
+        var data = new google.visualization.DataTable(jsondata);
+        var options = {
+            title: 'Podział głosów',
+            pieHole: 0.1,
+            pieResidueSliceLabel: "Pozostali",
+            legend: { position: 'left', maxLines: 100 },
+            //chartArea : { left:20 , right : 40 } ,
+            sliceVisibilityThreshold: .03
+        };
 
-{% block content %}
 
-{% if data is defined %}
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-<script type='text/javascript'>
-google.load('visualization', '1', {'packages': ['geochart']});
-google.charts.load('current', {'packages':['corechart']});
-google.setOnLoadCallback(drawMarkersMap);
-function drawMarkersMap() {
-    var jsonData = {{ data|safe }}
-    var data = new google.visualization.DataTable(jsonData);
-    var options = {
-        region: 'PL',
-        dataMode: 'regions',
-        displayMode: 'regions',
-        resolution: 'provinces',
-        legend: 'none',
-        enableRegionInteractivity: 'true',
-        sizeAxis: {minSize:5,  maxSize: 5},
-        colorAxis: {colors: ['#0B2762']}
-    };
-    var chart = new google.visualization.GeoChart(document.getElementById('map_chart'));
-    google.visualization.events.addListener(chart, 'select', function () {
-        var selection = chart.getSelection();
-        if (selection.length > 0) {
-            window.location = './woje/' + data.getValue(selection[0].row, 0);
+        var chart = new google.visualization.PieChart(document.getElementById('pie'));
+        chart.draw(data, options);
+
+        {% if data is defined %}
+            var jsondata2 = {{data|safe}}
+            var data2 = new google.visualization.DataTable(jsondata2);
+            var options2 = {
+            region: 'PL',
+            resolution: 'provinces',
+            datalessRegionColor: 'transparent',
+            colorAxis: { colors: ['#c3c90a', '#d65906', '#8c0106'] },
+                };
+
+        var chart2 = new google.visualization.GeoChart(document.getElementById('Mapa'));
+        google.visualization.events.addListener(chart2, 'select', function () {
+            var selection = chart2.getSelection();
+            if (selection.length > 0) {
+                window.open('./woje/' + data2.getValue(selection[0].row, 0), "_self");
+            }
+        });
+        chart2.draw(data2, options2);
+        {%endif%}
         }
-    });
-    chart.draw(data, options);
-};
-</script>
+        
 
-{% endif %}
-<p> <a href="../../.."> Kraj </a></p>
-<p>
-<nav> <a href="./search"> Wyszykiwanie </a> </nav>
-</p>
-<p>
-<nav> <a href="./login"> Login </a> </nav>
-</p>
-<p>
-<nav> <a href="./logout"> Logout </a> </nav>
-</p>
-{% if change is defined %}
-<p>
-<nav> <a href="./change"> Zmień </a> </nav>
-</p>
-{% endif %}
-<div class="general_stats">
-    <p>
-    Uprawnionych: {{ region_info.max_votes }}
-    </p>
-    <p>
-    Kart ważnych: {{ region_info.valid_votes }}
-    </p>
-    <p>
-    Frekwencja: {{ "%.2f" % (region_info.valid_votes / region_info.max_votes * 100) | float }}%
-    </p>
-</div>
-
-<div id="charts">
-
-    {% if data is defined %}
-    <div id="map_chart"></div>
-    {% endif %}
-
-
-    <div class="responsive_hide">
-        <div class="chart">
-            {% for stat in candidates_stats %}
-            <div class="bar_wrap">
-                <div class="bar" style="height: {{ stat[2] }}%;">
-                    <div>
-                        {{ "%.2f" % stat[1] | float }}%
-                    </div>
-                </div>
-                <div class="legend">
-                    {{ stat[0] }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    </script>
+</head>
+<body>
+   
+    <header>
+        <h1> <strong> Wybory : {{ title }} </strong> </h1>
+    </header>
+    <div class="general_stats">
+        <p>
+            Uprawnionych: {{ region_info.max_votes }}
+        </p>
+        <p>
+            Kart ważnych: {{ region_info.valid_votes }}
+        </p>
+        <p>
+            Frekwencja: {{ "%.2f" % (region_info.valid_votes / region_info.max_votes * 100) | float }}%
+        </p>
     </div>
 
-    <div class="desktop_hide">
-        <div class="chart">
-            {% for stat in candidates_stats %}
-            <div class="bar_wrap">
-                <div class="bar" style="width: {{ stat[2] }}%;">
-                    <div>
-                        {{ "%.2f" % stat[1] | float }}%
-                    </div>
-                </div>
-                <div class="legend">
-                    {{ stat[0] }}
-                </div>
-            </div>
+    <p> <nav><a href="../../.."> Kraj </a></nav></p>
+    <p>
+        <nav> <a href="./search"> Wyszykiwanie </a> </nav>
+    </p>
+    <p>
+        <nav> <a href="./login"> Login </a> </nav>
+    </p>
+    <p>
+        <nav> <a href="./logout"> Logout </a> </nav>
+    </p>
+    {% if change is defined %}
+    <p>
+        <nav> <a href="./change"> Zmień </a> </nav>
+    </p>
+    {%endif%}
+        <figure id="pie">
+        </figure>
+        <figure id="Mapa">
+        </figure>
+    <main>
+        {% if regions_data is defined %}
+        <h2>Wyniki </h2>
+        <table>
+            <tr>
+                <th>
+                    {{ unit }}
+                </th>
+                <th class="responsive_hide">
+                    Uprawnionych
+                </th>
+                <th class="responsive_hide">
+                    Kart ważnych
+                </th>
+                <th>
+                    Frekwencja
+                </th>
+            </tr>
+            {% for w in regions_data %}
+            <tr>
+                <td>
+                    <a href="../../{{ w.path() }}">{{ w.name }}</a>
+                </td>
+                <td class="responsive_hide">
+                    {{ w.max_votes }}
+                </td>
+                <td class="responsive_hide">
+                    {{ w.valid_votes }}
+                </td>
+                <td>
+                    {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
+                </td>
+            </tr>
             {% endfor %}
-        </div>
-    </div>
 
-</div>
-
-{% if regions_data is defined %}
-<table>
-    <tr>
-        <th>
-            {{ unit }}
-        </th>
-        <th>
-            Statystyka
-        </th>
-        <th class="responsive_hide">
-            Uprawnionych
-        </th>
-        <th class="responsive_hide">
-            Kart ważnych
-        </th>
-        <th>
-            Frekwencja
-        </th>
-    </tr>
-    {% for w in regions_data %}
-    <tr>
-        <td>
-            <a href="../../{{ w.path() }}">{{ w.name }}</a>
-        </td>
-        <td>
-            <div class="horizontal_bar_chart">
-                {% for bar in w.bar %}
-                <div class="horizontal_bar_element" style="background-color: {{ bar[2] }}; flex-grow: {{ bar[1] }};">
-                    <div class="horizontal_bar_tooltip">
-                        {{ bar[0] }}
-                        {{ "%.2f" % bar[1] | float }}%
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </td>
-        <td class="responsive_hide">
-            {{ w.max_votes }}
-        </td>
-        <td class="responsive_hide">
-            {{ w.valid_votes }}
-        </td>
-        <td>
-            {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
-        </td>
-    </tr>
-    {% endfor %}
-
-</table>
-{% endif %}
-
-{% endblock %}
+        </table>
+        {%endif%}
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

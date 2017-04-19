@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w województwie OPOLSKIE</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 1963],
+        ['Piotr IKONOWICZ', 768],
+            ['Jarosław KALINOWSKI', 15288],
+            ['Janusz KORWIN-MIKKE', 6108],
+            ['Marian KRZAKLEWSKI', 61590],
+            ['Aleksander KWAŚNIEWSKI', 225373],
+            ['Andrzej LEPPER', 13208],
+            ['Jan ŁOPUSZAŃSKI', 2270],
+            ['Andrzej Marian OLECHOWSKI', 77545],
+            ['Bogdan PAWŁOWSKI', 357],
+            ['Lech WAŁĘSA', 6297],
+            ['Tadeusz Adam WILECKI', 481]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w województwie <strong>OPOLSKIE </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Okręg</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/37.html"> 37 </a> </td>
+                    <td class="hided"> 476274</td>
+                    <td> 240114</td>
+                    <td class="hided"> 1162</td>
+                    <td class="hided"> 447</td>
+                    <td class="hided"> 8631</td>
+                    <td class="hided"> 3498</td>
+                    <td class="hided"> 35206</td>
+                    <td class="hided"> 131221</td>
+                    <td class="hided"> 7159</td>
+                    <td class="hided"> 1350</td>
+                    <td class="hided"> 47046</td>
+                    <td class="hided"> 203</td>
+                    <td class="hided"> 3917</td>
+                    <td class="hided"> 274</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/38.html"> 38 </a> </td>
+                    <td class="hided"> 336046</td>
+                    <td> 171134</td>
+                    <td class="hided"> 801</td>
+                    <td class="hided"> 321</td>
+                    <td class="hided"> 6657</td>
+                    <td class="hided"> 2610</td>
+                    <td class="hided"> 26384</td>
+                    <td class="hided"> 94152</td>
+                    <td class="hided"> 6049</td>
+                    <td class="hided"> 920</td>
+                    <td class="hided"> 30499</td>
+                    <td class="hided"> 154</td>
+                    <td class="hided"> 2380</td>
+                    <td class="hided"> 207</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

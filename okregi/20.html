@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w okręgu 20</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 860],
+        ['Piotr IKONOWICZ', 411],
+            ['Jarosław KALINOWSKI', 2086],
+            ['Janusz KORWIN-MIKKE', 5732],
+            ['Marian KRZAKLEWSKI', 39563],
+            ['Aleksander KWAŚNIEWSKI', 71615],
+            ['Andrzej LEPPER', 1299],
+            ['Jan ŁOPUSZAŃSKI', 1932],
+            ['Andrzej Marian OLECHOWSKI', 66256],
+            ['Bogdan PAWŁOWSKI', 135],
+            ['Lech WAŁĘSA', 2845],
+            ['Tadeusz Adam WILECKI', 250]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w okręgu <strong>20 </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Okręg</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Kraków.html"> Kraków </a> </td>
+                    <td class="hided"> 282413</td>
+                    <td> 183046</td>
+                    <td class="hided"> 882</td>
+                    <td class="hided"> 406</td>
+                    <td class="hided"> 2921</td>
+                    <td class="hided"> 5021</td>
+                    <td class="hided"> 37398</td>
+                    <td class="hided"> 76120</td>
+                    <td class="hided"> 1793</td>
+                    <td class="hided"> 1867</td>
+                    <td class="hided"> 53971</td>
+                    <td class="hided"> 173</td>
+                    <td class="hided"> 2208</td>
+                    <td class="hided"> 286</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

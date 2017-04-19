@@ -14,7 +14,159 @@
     <body>
         <h2> Wyniki wyborów 2000 roku </h2>
         <h2> {{ title }} </h2>
-        {% block content %}
-        {% endblock %}
+        {% if data is defined %}
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type='text/javascript'>
+        google.load('visualization', '1', {'packages': ['geochart']});
+        google.charts.load('current', {'packages':['corechart']});
+        google.setOnLoadCallback(drawMarkersMap);
+        function drawMarkersMap() {
+            var jsonData = {{ data|safe }}
+            var data = new google.visualization.DataTable(jsonData);
+            var options = {
+                region: 'PL',
+                dataMode: 'regions',
+                displayMode: 'regions',
+                resolution: 'provinces',
+                legend: 'none',
+                enableRegionInteractivity: 'true',
+                sizeAxis: {minSize:5,  maxSize: 5},
+                colorAxis: {colors: ['#0B2762']}
+            };
+            var chart = new google.visualization.GeoChart(document.getElementById('map_chart'));
+            google.visualization.events.addListener(chart, 'select', function () {
+                var selection = chart.getSelection();
+                if (selection.length > 0) {
+                    window.location = './woje/' + data.getValue(selection[0].row, 0);
+                }
+            });
+            chart.draw(data, options);
+        };
+        </script>
+
+        {% endif %}
+        <p> <nav><a href="../../.."> Kraj </a></nav></p>
+        <p>
+        <nav> <a href="./search"> Wyszykiwanie </a> </nav>
+        </p>
+        <p>
+        <nav> <a href="./login"> Login </a> </nav>
+        </p>
+        <p>
+        <nav> <a href="./logout"> Logout </a> </nav>
+        </p>
+        {% if change is defined %}
+        <p>
+        <nav> <a href="./change"> Zmień </a> </nav>
+        </p>
+        {% endif %}
+        <div class="general_stats">
+            <p>
+            Uprawnionych: {{ region_info.max_votes }}
+            </p>
+            <p>
+            Kart ważnych: {{ region_info.valid_votes }}
+            </p>
+            <p>
+            Frekwencja: {{ "%.2f" % (region_info.valid_votes / region_info.max_votes * 100) | float }}%
+            </p>
+        </div>
+
+        <div id="charts">
+
+            {% if data is defined %}
+            <div id="map_chart"></div>
+            {% endif %}
+
+
+            <div class="responsive_hide">
+                <div class="chart">
+                    {% for stat in candidates_stats %}
+                    <div class="bar_wrap">
+                        <div class="bar" style="height: {{ stat[2] }}%;">
+                            <div>
+                                {{ "%.2f" % stat[1] | float }}%
+                            </div>
+                        </div>
+                        <div class="legend">
+                            {{ stat[0] }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="desktop_hide">
+                <div class="chart">
+                    {% for stat in candidates_stats %}
+                    <div class="bar_wrap">
+                        <div class="bar" style="width: {{ stat[2] }}%;">
+                            <div>
+                                {{ "%.2f" % stat[1] | float }}%
+                            </div>
+                        </div>
+                        <div class="legend">
+                            {{ stat[0] }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        {% if regions_data is defined %}
+        <table>
+            <tr>
+                <th>
+                    {{ unit }}
+                </th>
+                <th>
+                    Statystyka
+                </th>
+                <th class="responsive_hide">
+                    Uprawnionych
+                </th>
+                <th class="responsive_hide">
+                    Kart ważnych
+                </th>
+                <th>
+                    Frekwencja
+                </th>
+            </tr>
+            {% for w in regions_data %}
+            <tr>
+                <td>
+                    <a href="../../{{ w.path() }}">{{ w.name }}</a>
+                </td>
+                <td>
+                    <div class="horizontal_bar_chart">
+                        {% for bar in w.bar %}
+                        <div class="horizontal_bar_element" style="background-color: {{ bar[2] }}; flex-grow: {{ bar[1] }};">
+                            <div class="horizontal_bar_tooltip">
+                                {{ bar[0] }}
+                                {{ "%.2f" % bar[1] | float }}%
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td class="responsive_hide">
+                    {{ w.max_votes }}
+                </td>
+                <td class="responsive_hide">
+                    {{ w.valid_votes }}
+                </td>
+                <td>
+                    {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endif %}
     </body>
 </html>
+

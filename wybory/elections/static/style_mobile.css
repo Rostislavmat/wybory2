@@ -1,4 +1,85 @@
-@import url("/static/base.css");
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(250, 185, 96, 0.66)
+}
+
+tr:hover {
+    background-color: rgba(255, 106, 0, 0.66)
+}
+
+.map_chart {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+
+
+.horizontal_bar_chart {
+    width: 250px;
+    display: flex;
+    height: 30px;
+}
+
+.horizontal_bar_tooltip {
+    padding: 5px;
+    position: absolute;
+    top: 35px;
+    visibility: hidden;
+    background-color: #F1F5FF;
+    border-width: 1px;
+    border-color: #193778;
+    border-style: solid;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.horizontal_bar_element {
+    position: relative;
+}
+
+    .horizontal_bar_element:hover .horizontal_bar_tooltip {
+        visibility: visible;
+    }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a:hover {
+        color: #2020a0;
+    }
+
+.bar {
+    background-color: #193778;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+
+
 
 .responsive_hide {
     display: none;
@@ -42,26 +123,6 @@ tr > td:last-of-type {
     text-align: right;
 }
 
-.bar {
-    height: 15px;
-}
-
-.bar_wrap {
-    width: 90%;
-    margin: auto;
-    padding-top: 25px;
-    padding-bottom: 15px;
-}
-
-.bar > div {
-    position: relative;
-    bottom: 20px;
-}
-
-.bar_wrap > .legend {
-    margin-top: 5px;
-}
-
 .chart {
     margin-top: 16px;
 
@@ -73,4 +134,8 @@ tr > td:last-of-type {
 
 td:nth-child(2) { 
     width: 100%; 
+}
+
+#Mapa {
+    width: 70%;
 }

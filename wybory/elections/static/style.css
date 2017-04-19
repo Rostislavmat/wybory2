@@ -1,4 +1,80 @@
-@import url("/static/base.css");
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(250, 185, 96, 0.66)
+}
+
+tr:hover {
+    background-color: rgba(255, 106, 0, 0.66)
+}
+
+.map_chart {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+.horizontal_bar_chart {
+    width: 250px;
+    display: flex;
+    height: 30px;
+}
+
+.horizontal_bar_tooltip {
+    padding: 5px;
+    position: absolute;
+    top: 35px;
+    visibility: hidden;
+    background-color: #F1F5FF;
+    border-width: 1px;
+    border-color: #193778;
+    border-style: solid;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.horizontal_bar_element {
+    position: relative;
+}
+
+    .horizontal_bar_element:hover .horizontal_bar_tooltip {
+        visibility: visible;
+    }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a:hover {
+        color: #2020a0;
+    }
+
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+
+
 
 .chart {
     padding-left: 80px;
@@ -6,34 +82,6 @@
     height: 450px;
 }
 
-.bar {
-    margin: 0 12px 0 12px;
-    flex-grow: 1;
-    align-self: flex-end;
-}
-
-.bar_wrap {
-    position: relative;
-    margin-top: 26px;
-    height: 60%;
-    display: flex;
-}
-
-.bar > div {
-    position: relative;
-    bottom: 20px;
-}
-
-.bar_wrap > .legend {
-    transform: rotate(310deg) scale(1) skew(1deg) translate(0px);
-    align-self: flex-end;
-    position: absolute;
-    top: 370px;
-    right: -15px;
-    width: 250px;    
-    text-align: right;
-    white-space: nowrap;
-}
 
 #charts {
     display: flex;
@@ -42,9 +90,21 @@
     flex-wrap: wrap;
 }
 
-#map_chart {
-    width: 550px;
+#Mapa {
+    padding-left: 0px;
+    margin-left: 0px;
+    max-height: 600px;
+    width: 650px;
 }
+
+#pie {
+    width: 650px;
+    height: 650px;
+    max-width: 650px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 
 .desktop_hide {
     display: none;

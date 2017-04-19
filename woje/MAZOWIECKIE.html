@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w województwie MAZOWIECKIE</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 12842],
+        ['Piotr IKONOWICZ', 5695],
+            ['Jarosław KALINOWSKI', 192056],
+            ['Janusz KORWIN-MIKKE', 41642],
+            ['Marian KRZAKLEWSKI', 417095],
+            ['Aleksander KWAŚNIEWSKI', 1105930],
+            ['Andrzej LEPPER', 62570],
+            ['Jan ŁOPUSZAŃSKI', 28342],
+            ['Andrzej Marian OLECHOWSKI', 497589],
+            ['Bogdan PAWŁOWSKI', 3150],
+            ['Lech WAŁĘSA', 26160],
+            ['Tadeusz Adam WILECKI', 4030]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w województwie <strong>MAZOWIECKIE </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Okręg</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/34.html"> 34 </a> </td>
+                    <td class="hided"> 375177</td>
+                    <td> 212179</td>
+                    <td class="hided"> 1022</td>
+                    <td class="hided"> 476</td>
+                    <td class="hided"> 20277</td>
+                    <td class="hided"> 2241</td>
+                    <td class="hided"> 24587</td>
+                    <td class="hided"> 124576</td>
+                    <td class="hided"> 6799</td>
+                    <td class="hided"> 1436</td>
+                    <td class="hided"> 28488</td>
+                    <td class="hided"> 217</td>
+                    <td class="hided"> 1781</td>
+                    <td class="hided"> 279</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/31.html"> 31 </a> </td>
+                    <td class="hided"> 328294</td>
+                    <td> 189012</td>
+                    <td class="hided"> 979</td>
+                    <td class="hided"> 382</td>
+                    <td class="hided"> 9573</td>
+                    <td class="hided"> 3248</td>
+                    <td class="hided"> 37468</td>
+                    <td class="hided"> 84596</td>
+                    <td class="hided"> 3978</td>
+                    <td class="hided"> 2738</td>
+                    <td class="hided"> 43309</td>
+                    <td class="hided"> 225</td>
+                    <td class="hided"> 2186</td>
+                    <td class="hided"> 330</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/33.html"> 33 </a> </td>
+                    <td class="hided"> 331697</td>
+                    <td> 201253</td>
+                    <td class="hided"> 1110</td>
+                    <td class="hided"> 442</td>
+                    <td class="hided"> 9870</td>
+                    <td class="hided"> 4029</td>
+                    <td class="hided"> 38885</td>
+                    <td class="hided"> 84696</td>
+                    <td class="hided"> 3453</td>
+                    <td class="hided"> 2639</td>
+                    <td class="hided"> 52982</td>
+                    <td class="hided"> 335</td>
+                    <td class="hided"> 2521</td>
+                    <td class="hided"> 291</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/29.html"> 29 </a> </td>
+                    <td class="hided"> 546510</td>
+                    <td> 368746</td>
+                    <td class="hided"> 2201</td>
+                    <td class="hided"> 982</td>
+                    <td class="hided"> 6277</td>
+                    <td class="hided"> 10057</td>
+                    <td class="hided"> 67524</td>
+                    <td class="hided"> 161422</td>
+                    <td class="hided"> 2929</td>
+                    <td class="hided"> 4514</td>
+                    <td class="hided"> 107294</td>
+                    <td class="hided"> 581</td>
+                    <td class="hided"> 4457</td>
+                    <td class="hided"> 508</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/36.html"> 36 </a> </td>
+                    <td class="hided"> 433182</td>
+                    <td> 252299</td>
+                    <td class="hided"> 1334</td>
+                    <td class="hided"> 498</td>
+                    <td class="hided"> 43201</td>
+                    <td class="hided"> 2877</td>
+                    <td class="hided"> 40215</td>
+                    <td class="hided"> 107545</td>
+                    <td class="hided"> 14374</td>
+                    <td class="hided"> 3508</td>
+                    <td class="hided"> 35508</td>
+                    <td class="hided"> 367</td>
+                    <td class="hided"> 2418</td>
+                    <td class="hided"> 454</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/28.html"> 28 </a> </td>
+                    <td class="hided"> 820006</td>
+                    <td> 556747</td>
+                    <td class="hided"> 2886</td>
+                    <td class="hided"> 1556</td>
+                    <td class="hided"> 7448</td>
+                    <td class="hided"> 12300</td>
+                    <td class="hided"> 120238</td>
+                    <td class="hided"> 241101</td>
+                    <td class="hided"> 3515</td>
+                    <td class="hided"> 6780</td>
+                    <td class="hided"> 151519</td>
+                    <td class="hided"> 771</td>
+                    <td class="hided"> 7697</td>
+                    <td class="hided"> 936</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/30.html"> 30 </a> </td>
+                    <td class="hided"> 263414</td>
+                    <td> 144931</td>
+                    <td class="hided"> 555</td>
+                    <td class="hided"> 281</td>
+                    <td class="hided"> 20797</td>
+                    <td class="hided"> 1197</td>
+                    <td class="hided"> 15669</td>
+                    <td class="hided"> 84059</td>
+                    <td class="hided"> 5129</td>
+                    <td class="hided"> 688</td>
+                    <td class="hided"> 15287</td>
+                    <td class="hided"> 129</td>
+                    <td class="hided"> 957</td>
+                    <td class="hided"> 183</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/35.html"> 35 </a> </td>
+                    <td class="hided"> 560846</td>
+                    <td> 311397</td>
+                    <td class="hided"> 2090</td>
+                    <td class="hided"> 828</td>
+                    <td class="hided"> 42832</td>
+                    <td class="hided"> 4232</td>
+                    <td class="hided"> 42997</td>
+                    <td class="hided"> 147386</td>
+                    <td class="hided"> 15993</td>
+                    <td class="hided"> 4495</td>
+                    <td class="hided"> 46507</td>
+                    <td class="hided"> 368</td>
+                    <td class="hided"> 2913</td>
+                    <td class="hided"> 756</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../okregi/32.html"> 32 </a> </td>
+                    <td class="hided"> 289338</td>
+                    <td> 160537</td>
+                    <td class="hided"> 665</td>
+                    <td class="hided"> 250</td>
+                    <td class="hided"> 31781</td>
+                    <td class="hided"> 1461</td>
+                    <td class="hided"> 29512</td>
+                    <td class="hided"> 70549</td>
+                    <td class="hided"> 6400</td>
+                    <td class="hided"> 1544</td>
+                    <td class="hided"> 16695</td>
+                    <td class="hided"> 157</td>
+                    <td class="hided"> 1230</td>
+                    <td class="hided"> 293</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

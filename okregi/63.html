@@ -1,0 +1,772 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w okręgu 63</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 933],
+        ['Piotr IKONOWICZ', 301],
+            ['Jarosław KALINOWSKI', 15698],
+            ['Janusz KORWIN-MIKKE', 2478],
+            ['Marian KRZAKLEWSKI', 23066],
+            ['Aleksander KWAŚNIEWSKI', 167083],
+            ['Andrzej LEPPER', 8218],
+            ['Jan ŁOPUSZAŃSKI', 1479],
+            ['Andrzej Marian OLECHOWSKI', 30378],
+            ['Bogdan PAWŁOWSKI', 161],
+            ['Lech WAŁĘSA', 1960],
+            ['Tadeusz Adam WILECKI', 278]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w okręgu <strong>63 </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>Okręg</th>
+                    <th class="hided">Uprawnieni</th>
+                    <th>Liczba głosów</th>
+                    <th class="hided"> GRABOWSKI </th>
+                    <th class="hided"> IKONOWICZ </th>
+                    <th class="hided"> KALINOWSKI </th>
+                    <th class="hided"> KORWIN-MIKKE </th>
+                    <th class="hided"> KRZAKLEWSKI </th>
+                    <th class="hided"> KWAŚNIEWSKI </th>
+                    <th class="hided"> LEPPER </th>
+                    <th class="hided"> ŁOPUSZAŃSKI </th>
+                    <th class="hided"> OLECHOWSKI </th>
+                    <th class="hided"> PAWŁOWSKI </th>
+                    <th class="hided"> WAŁĘSA </th>
+                    <th class="hided"> WILECKI </th>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Bojanowo.html"> Bojanowo </a> </td>
+                    <td class="hided"> 6505</td>
+                    <td> 4099</td>
+                    <td class="hided"> 21</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 254</td>
+                    <td class="hided"> 38</td>
+                    <td class="hided"> 330</td>
+                    <td class="hided"> 2945</td>
+                    <td class="hided"> 141</td>
+                    <td class="hided"> 22</td>
+                    <td class="hided"> 305</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 33</td>
+                    <td class="hided"> 3</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Borek-Wielkopolski.html"> Borek Wielkopolski </a> </td>
+                    <td class="hided"> 5650</td>
+                    <td> 3698</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 425</td>
+                    <td class="hided"> 38</td>
+                    <td class="hided"> 191</td>
+                    <td class="hided"> 2545</td>
+                    <td class="hided"> 202</td>
+                    <td class="hided"> 16</td>
+                    <td class="hided"> 244</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 5</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Brodnica.html"> Brodnica </a> </td>
+                    <td class="hided"> 3329</td>
+                    <td> 2173</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 153</td>
+                    <td class="hided"> 19</td>
+                    <td class="hided"> 142</td>
+                    <td class="hided"> 1551</td>
+                    <td class="hided"> 45</td>
+                    <td class="hided"> 10</td>
+                    <td class="hided"> 228</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 1</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Czempiń.html"> Czempiń </a> </td>
+                    <td class="hided"> 8330</td>
+                    <td> 5535</td>
+                    <td class="hided"> 20</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 467</td>
+                    <td class="hided"> 46</td>
+                    <td class="hided"> 423</td>
+                    <td class="hided"> 3662</td>
+                    <td class="hided"> 150</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 697</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 35</td>
+                    <td class="hided"> 5</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Dolsk.html"> Dolsk </a> </td>
+                    <td class="hided"> 4104</td>
+                    <td> 2542</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 308</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 196</td>
+                    <td class="hided"> 1644</td>
+                    <td class="hided"> 102</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 247</td>
+                    <td class="hided"> 2</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 3</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Gostyń.html"> Gostyń </a> </td>
+                    <td class="hided"> 20534</td>
+                    <td> 14068</td>
+                    <td class="hided"> 58</td>
+                    <td class="hided"> 25</td>
+                    <td class="hided"> 608</td>
+                    <td class="hided"> 131</td>
+                    <td class="hided"> 1447</td>
+                    <td class="hided"> 9063</td>
+                    <td class="hided"> 416</td>
+                    <td class="hided"> 128</td>
+                    <td class="hided"> 1996</td>
+                    <td class="hided"> 14</td>
+                    <td class="hided"> 167</td>
+                    <td class="hided"> 15</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Jutrosin.html"> Jutrosin </a> </td>
+                    <td class="hided"> 4992</td>
+                    <td> 3344</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 442</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 228</td>
+                    <td class="hided"> 2227</td>
+                    <td class="hided"> 197</td>
+                    <td class="hided"> 31</td>
+                    <td class="hided"> 168</td>
+                    <td class="hided"> 5</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 9</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Kościan.html"> Kościan </a> </td>
+                    <td class="hided"> 18521</td>
+                    <td> 13255</td>
+                    <td class="hided"> 62</td>
+                    <td class="hided"> 21</td>
+                    <td class="hided"> 213</td>
+                    <td class="hided"> 175</td>
+                    <td class="hided"> 1340</td>
+                    <td class="hided"> 8738</td>
+                    <td class="hided"> 174</td>
+                    <td class="hided"> 60</td>
+                    <td class="hided"> 2340</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 116</td>
+                    <td class="hided"> 10</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Kościan-gm.html"> Kościan gm. </a> </td>
+                    <td class="hided"> 10309</td>
+                    <td> 7004</td>
+                    <td class="hided"> 26</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 531</td>
+                    <td class="hided"> 43</td>
+                    <td class="hided"> 432</td>
+                    <td class="hided"> 4919</td>
+                    <td class="hided"> 315</td>
+                    <td class="hided"> 40</td>
+                    <td class="hided"> 644</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 37</td>
+                    <td class="hided"> 8</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Krobia.html"> Krobia </a> </td>
+                    <td class="hided"> 9295</td>
+                    <td> 6164</td>
+                    <td class="hided"> 19</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 762</td>
+                    <td class="hided"> 37</td>
+                    <td class="hided"> 509</td>
+                    <td class="hided"> 3848</td>
+                    <td class="hided"> 378</td>
+                    <td class="hided"> 130</td>
+                    <td class="hided"> 408</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 54</td>
+                    <td class="hided"> 8</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Krzemieniewo.html"> Krzemieniewo </a> </td>
+                    <td class="hided"> 6039</td>
+                    <td> 4140</td>
+                    <td class="hided"> 18</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 337</td>
+                    <td class="hided"> 26</td>
+                    <td class="hided"> 233</td>
+                    <td class="hided"> 2910</td>
+                    <td class="hided"> 282</td>
+                    <td class="hided"> 19</td>
+                    <td class="hided"> 273</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 23</td>
+                    <td class="hided"> 8</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Krzywiń.html"> Krzywiń </a> </td>
+                    <td class="hided"> 7092</td>
+                    <td> 4615</td>
+                    <td class="hided"> 27</td>
+                    <td class="hided"> 5</td>
+                    <td class="hided"> 608</td>
+                    <td class="hided"> 31</td>
+                    <td class="hided"> 396</td>
+                    <td class="hided"> 2906</td>
+                    <td class="hided"> 274</td>
+                    <td class="hided"> 20</td>
+                    <td class="hided"> 302</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 34</td>
+                    <td class="hided"> 8</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Książ-Wielkopolski.html"> Książ Wielkopolski </a> </td>
+                    <td class="hided"> 5944</td>
+                    <td> 3697</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 474</td>
+                    <td class="hided"> 18</td>
+                    <td class="hided"> 246</td>
+                    <td class="hided"> 2483</td>
+                    <td class="hided"> 157</td>
+                    <td class="hided"> 22</td>
+                    <td class="hided"> 249</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 32</td>
+                    <td class="hided"> 4</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Kuślin.html"> Kuślin </a> </td>
+                    <td class="hided"> 3846</td>
+                    <td> 2507</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 187</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 215</td>
+                    <td class="hided"> 1776</td>
+                    <td class="hided"> 109</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 171</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 10</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Leszno.html"> Leszno </a> </td>
+                    <td class="hided"> 48176</td>
+                    <td> 33285</td>
+                    <td class="hided"> 129</td>
+                    <td class="hided"> 41</td>
+                    <td class="hided"> 491</td>
+                    <td class="hided"> 587</td>
+                    <td class="hided"> 3324</td>
+                    <td class="hided"> 21598</td>
+                    <td class="hided"> 353</td>
+                    <td class="hided"> 280</td>
+                    <td class="hided"> 6087</td>
+                    <td class="hided"> 20</td>
+                    <td class="hided"> 344</td>
+                    <td class="hided"> 31</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Lipno.html"> Lipno </a> </td>
+                    <td class="hided"> 3747</td>
+                    <td> 2496</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 2</td>
+                    <td class="hided"> 172</td>
+                    <td class="hided"> 27</td>
+                    <td class="hided"> 277</td>
+                    <td class="hided"> 1596</td>
+                    <td class="hided"> 114</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 259</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 19</td>
+                    <td class="hided"> 2</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Lwówek.html"> Lwówek </a> </td>
+                    <td class="hided"> 6616</td>
+                    <td> 4078</td>
+                    <td class="hided"> 16</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 363</td>
+                    <td class="hided"> 32</td>
+                    <td class="hided"> 359</td>
+                    <td class="hided"> 2734</td>
+                    <td class="hided"> 124</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 400</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 24</td>
+                    <td class="hided"> 5</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Miedzichowo.html"> Miedzichowo </a> </td>
+                    <td class="hided"> 2750</td>
+                    <td> 1703</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 151</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 165</td>
+                    <td class="hided"> 1116</td>
+                    <td class="hided"> 70</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 167</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 14</td>
+                    <td class="hided"> 2</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Miejska-Górka.html"> Miejska Górka </a> </td>
+                    <td class="hided"> 6923</td>
+                    <td> 4464</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 570</td>
+                    <td class="hided"> 31</td>
+                    <td class="hided"> 290</td>
+                    <td class="hided"> 2986</td>
+                    <td class="hided"> 245</td>
+                    <td class="hided"> 23</td>
+                    <td class="hided"> 269</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 24</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Nowy-Tomyśl.html"> Nowy Tomyśl </a> </td>
+                    <td class="hided"> 17511</td>
+                    <td> 11584</td>
+                    <td class="hided"> 28</td>
+                    <td class="hided"> 14</td>
+                    <td class="hided"> 409</td>
+                    <td class="hided"> 110</td>
+                    <td class="hided"> 1099</td>
+                    <td class="hided"> 7572</td>
+                    <td class="hided"> 293</td>
+                    <td class="hided"> 47</td>
+                    <td class="hided"> 1905</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 87</td>
+                    <td class="hided"> 11</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Opalenica.html"> Opalenica </a> </td>
+                    <td class="hided"> 11433</td>
+                    <td> 7692</td>
+                    <td class="hided"> 30</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 472</td>
+                    <td class="hided"> 52</td>
+                    <td class="hided"> 844</td>
+                    <td class="hided"> 5072</td>
+                    <td class="hided"> 179</td>
+                    <td class="hided"> 38</td>
+                    <td class="hided"> 940</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 46</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Osieczna.html"> Osieczna </a> </td>
+                    <td class="hided"> 6145</td>
+                    <td> 3907</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 306</td>
+                    <td class="hided"> 41</td>
+                    <td class="hided"> 296</td>
+                    <td class="hided"> 2688</td>
+                    <td class="hided"> 228</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 288</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 27</td>
+                    <td class="hided"> 5</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Pakosław.html"> Pakosław </a> </td>
+                    <td class="hided"> 3259</td>
+                    <td> 2269</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 333</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 155</td>
+                    <td class="hided"> 1444</td>
+                    <td class="hided"> 154</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 131</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 7</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Pępowo.html"> Pępowo </a> </td>
+                    <td class="hided"> 4329</td>
+                    <td> 3040</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 398</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 274</td>
+                    <td class="hided"> 1985</td>
+                    <td class="hided"> 168</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 157</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 14</td>
+                    <td class="hided"> 5</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Piaski.html"> Piaski </a> </td>
+                    <td class="hided"> 5886</td>
+                    <td> 3848</td>
+                    <td class="hided"> 21</td>
+                    <td class="hided"> 5</td>
+                    <td class="hided"> 337</td>
+                    <td class="hided"> 43</td>
+                    <td class="hided"> 317</td>
+                    <td class="hided"> 2525</td>
+                    <td class="hided"> 191</td>
+                    <td class="hided"> 45</td>
+                    <td class="hided"> 334</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 22</td>
+                    <td class="hided"> 4</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Pogorzela.html"> Pogorzela </a> </td>
+                    <td class="hided"> 3687</td>
+                    <td> 2463</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 357</td>
+                    <td class="hided"> 14</td>
+                    <td class="hided"> 164</td>
+                    <td class="hided"> 1656</td>
+                    <td class="hided"> 123</td>
+                    <td class="hided"> 12</td>
+                    <td class="hided"> 114</td>
+                    <td class="hided"> 0</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 0</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Poniec.html"> Poniec </a> </td>
+                    <td class="hided"> 5803</td>
+                    <td> 3729</td>
+                    <td class="hided"> 8</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 407</td>
+                    <td class="hided"> 26</td>
+                    <td class="hided"> 181</td>
+                    <td class="hided"> 2576</td>
+                    <td class="hided"> 241</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 247</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 27</td>
+                    <td class="hided"> 1</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Przemęt.html"> Przemęt </a> </td>
+                    <td class="hided"> 9506</td>
+                    <td> 6287</td>
+                    <td class="hided"> 18</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 632</td>
+                    <td class="hided"> 46</td>
+                    <td class="hided"> 580</td>
+                    <td class="hided"> 4005</td>
+                    <td class="hided"> 363</td>
+                    <td class="hided"> 39</td>
+                    <td class="hided"> 539</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 54</td>
+                    <td class="hided"> 4</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Rawicz.html"> Rawicz </a> </td>
+                    <td class="hided"> 22640</td>
+                    <td> 15098</td>
+                    <td class="hided"> 54</td>
+                    <td class="hided"> 30</td>
+                    <td class="hided"> 641</td>
+                    <td class="hided"> 162</td>
+                    <td class="hided"> 1400</td>
+                    <td class="hided"> 10379</td>
+                    <td class="hided"> 403</td>
+                    <td class="hided"> 59</td>
+                    <td class="hided"> 1822</td>
+                    <td class="hided"> 11</td>
+                    <td class="hided"> 123</td>
+                    <td class="hided"> 14</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Rydzyna.html"> Rydzyna </a> </td>
+                    <td class="hided"> 5583</td>
+                    <td> 3755</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 5</td>
+                    <td class="hided"> 254</td>
+                    <td class="hided"> 42</td>
+                    <td class="hided"> 360</td>
+                    <td class="hided"> 2476</td>
+                    <td class="hided"> 170</td>
+                    <td class="hided"> 38</td>
+                    <td class="hided"> 351</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 34</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Siedlec.html"> Siedlec </a> </td>
+                    <td class="hided"> 8382</td>
+                    <td> 5737</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 660</td>
+                    <td class="hided"> 46</td>
+                    <td class="hided"> 357</td>
+                    <td class="hided"> 4070</td>
+                    <td class="hided"> 179</td>
+                    <td class="hided"> 12</td>
+                    <td class="hided"> 357</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 28</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Śmigiel.html"> Śmigiel </a> </td>
+                    <td class="hided"> 12636</td>
+                    <td> 8255</td>
+                    <td class="hided"> 31</td>
+                    <td class="hided"> 5</td>
+                    <td class="hided"> 491</td>
+                    <td class="hided"> 59</td>
+                    <td class="hided"> 745</td>
+                    <td class="hided"> 5251</td>
+                    <td class="hided"> 535</td>
+                    <td class="hided"> 54</td>
+                    <td class="hided"> 998</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 76</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Śrem.html"> Śrem </a> </td>
+                    <td class="hided"> 29284</td>
+                    <td> 20277</td>
+                    <td class="hided"> 73</td>
+                    <td class="hided"> 27</td>
+                    <td class="hided"> 847</td>
+                    <td class="hided"> 190</td>
+                    <td class="hided"> 2213</td>
+                    <td class="hided"> 13530</td>
+                    <td class="hided"> 338</td>
+                    <td class="hided"> 71</td>
+                    <td class="hided"> 2829</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 128</td>
+                    <td class="hided"> 18</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Święciechowa.html"> Święciechowa </a> </td>
+                    <td class="hided"> 4866</td>
+                    <td> 3210</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 194</td>
+                    <td class="hided"> 28</td>
+                    <td class="hided"> 289</td>
+                    <td class="hided"> 2163</td>
+                    <td class="hided"> 108</td>
+                    <td class="hided"> 19</td>
+                    <td class="hided"> 351</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 33</td>
+                    <td class="hided"> 6</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Wijewo.html"> Wijewo </a> </td>
+                    <td class="hided"> 2311</td>
+                    <td> 1553</td>
+                    <td class="hided"> 7</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 128</td>
+                    <td class="hided"> 17</td>
+                    <td class="hided"> 144</td>
+                    <td class="hided"> 965</td>
+                    <td class="hided"> 99</td>
+                    <td class="hided"> 9</td>
+                    <td class="hided"> 167</td>
+                    <td class="hided"> 1</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 0</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Włoszakowice.html"> Włoszakowice </a> </td>
+                    <td class="hided"> 5866</td>
+                    <td> 4167</td>
+                    <td class="hided"> 26</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 375</td>
+                    <td class="hided"> 47</td>
+                    <td class="hided"> 371</td>
+                    <td class="hided"> 2652</td>
+                    <td class="hided"> 186</td>
+                    <td class="hided"> 26</td>
+                    <td class="hided"> 443</td>
+                    <td class="hided"> 3</td>
+                    <td class="hided"> 31</td>
+                    <td class="hided"> 4</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Wolsztyn.html"> Wolsztyn </a> </td>
+                    <td class="hided"> 21306</td>
+                    <td> 15512</td>
+                    <td class="hided"> 53</td>
+                    <td class="hided"> 15</td>
+                    <td class="hided"> 622</td>
+                    <td class="hided"> 180</td>
+                    <td class="hided"> 1721</td>
+                    <td class="hided"> 10379</td>
+                    <td class="hided"> 289</td>
+                    <td class="hided"> 49</td>
+                    <td class="hided"> 2042</td>
+                    <td class="hided"> 13</td>
+                    <td class="hided"> 122</td>
+                    <td class="hided"> 27</td>
+                </tr>
+                
+                <tr>
+                    <td> <a href="../gminy/Zbąszyń.html"> Zbąszyń </a> </td>
+                    <td class="hided"> 9680</td>
+                    <td> 6783</td>
+                    <td class="hided"> 37</td>
+                    <td class="hided"> 6</td>
+                    <td class="hided"> 319</td>
+                    <td class="hided"> 38</td>
+                    <td class="hided"> 813</td>
+                    <td class="hided"> 4448</td>
+                    <td class="hided"> 123</td>
+                    <td class="hided"> 28</td>
+                    <td class="hided"> 909</td>
+                    <td class="hided"> 4</td>
+                    <td class="hided"> 49</td>
+                    <td class="hided"> 9</td>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>

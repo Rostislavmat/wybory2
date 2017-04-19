@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wyniki w gminieRejowiec Fabryczny</title>
+    <link rel="stylesheet" type="text/css" href="../style_all.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="../small.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kandydat', 'Głosy'],
+                ['Dariusz Maciej GRABOWSKI', 16],
+        ['Piotr IKONOWICZ', 7],
+            ['Jarosław KALINOWSKI', 112],
+            ['Janusz KORWIN-MIKKE', 9],
+            ['Marian KRZAKLEWSKI', 217],
+            ['Aleksander KWAŚNIEWSKI', 1116],
+            ['Andrzej LEPPER', 88],
+            ['Jan ŁOPUSZAŃSKI', 6],
+            ['Andrzej Marian OLECHOWSKI', 236],
+            ['Bogdan PAWŁOWSKI', 2],
+            ['Lech WAŁĘSA', 9],
+            ['Tadeusz Adam WILECKI', 21]
+            ]);
+
+
+            var options = {
+                title: 'Podział głosów',
+                pieHole: 0.1,
+                pieResidueSliceLabel: "Pozostali",
+                legend: {position: 'left', maxLines: 100},
+                //chartArea : { left:20 , right : 40 } ,
+                sliceVisibilityThreshold: .03
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('Głosy'));
+            chart.draw(data, options);
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1> Wybory w gminie <strong>Rejowiec Fabryczny </strong> </h1>
+    </header>
+    <nav>
+        <a href="../index.html"> Strona główna</a>
+    </nav>
+    <div class="map_chart">
+        <figure id="Głosy">
+        </figure>
+    </div>
+    <main>
+        <h2 > Tabela wyników </h2>
+        <div id = "table_wyniki" >
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th >Data</th>
+                    <th>Avaliable</th>
+                    <th> in </th>
+                    <th> reasonable </th>
+                    <th> format </th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        &copy; 2017 Rastsislau Matusevich
+    </footer>
+</body>
+</html>
