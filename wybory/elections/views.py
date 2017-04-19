@@ -40,7 +40,7 @@ def my_login(request , gmina = "/"):
 
 def my_logout(request):
     logout(request)
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect("./")
 
 
 def index(request):
