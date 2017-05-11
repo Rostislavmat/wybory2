@@ -46,8 +46,11 @@ def my_login(request , gmina = "/"):
 def my_logout(request):
     logout(request)
     return HttpResponseRedirect("./")
-
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def test(request):
+    return JsonResponse({"foo" : "bar"})
 def index(request):
     kraj = Kraj.objects.all()[0]
     title = 'Cały kraj'

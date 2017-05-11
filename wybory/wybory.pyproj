@@ -74,6 +74,8 @@
     <Content Include="elections\templates\stats.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
+    <Content Include="rest.html" />
+    <Content Include="rest.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
