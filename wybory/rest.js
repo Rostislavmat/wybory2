@@ -32,15 +32,15 @@ function displayQuestions(jsonQuestions) {
 
 function refresh() {
     var req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:8000/test");
+    req.open("GET", "http://localhost:8000/test/?name=arthas");
     req.addEventListener("error", function() {
         alert("Error: " + this.responseText);
         document.getElementById("status").firstChild.textContent = "offline";
     });
     req.addEventListener("load", function() {
-        displayQuestions(this.responseText);
+        //displayQuestions(this.responseText);
 
-        localStorage.setItem("questions", this.responseText);
+        //localStorage.setItem("questions", this.responseText);
         document.getElementById("status").firstChild.textContent = "online";
     });
     req.send();
@@ -60,14 +60,14 @@ function ask() {
     req.send("question=" + encodeURIComponent(question));
 }
 
-function init() {
-    document.getElementById("refresh").onclick = refresh;
-    document.getElementById("ask-button").onclick = ask;
 
+function init() {
+    /*document.getElementById("refresh").onclick = refresh;
+    document.getElementById("ask-button").onclick = ask;
     var previousQuestions = localStorage.getItem("questions");
     if (previousQuestions != null) {
         displayQuestions(previousQuestions);
-    }
-
+    }*/
     refresh();
+    
 }

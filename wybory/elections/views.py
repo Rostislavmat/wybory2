@@ -50,7 +50,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def test(request):
-    return JsonResponse({"foo" : "bar"})
+    x = request.GET["name"]
+    return JsonResponse({x: x})
 def index(request):
     kraj = Kraj.objects.all()[0]
     title = 'Cały kraj'
@@ -59,8 +60,6 @@ def wojewodztwo(request, wojewodztwo_name):
     woj = Wojewodztwo.objects.get(name=wojewodztwo_name)
     title = 'Wojewodztwo {0}'.format(woj.name)
     return renderHTML( request, woj, title)
-    #return index(request)
-    return HttpResponse(html.wojewodztwo(request,wojewodztwo_name))
 def okreg(request, okreg_name):
     okr = Okreg.objects.get(name=okreg_name)
     title = 'Okreg {0}'.format(okr.name)

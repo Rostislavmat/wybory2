@@ -16,5 +16,5 @@ urlpatterns = [
     url(r'^okreg/(?P<okreg_name>[^/]+)/$', views.okreg, name='okreg'),
     url(r'^gmina/(?P<gmina_name>[^/]+)/$', views.gmina, name='gmina'),
     url(r'^gmina/(?P<gmina_name>[^/]+)/change/$', views.change, name='zmiana'),
-    url(r'test$',views.test),
+    url(r'test',views.test),
 ]
