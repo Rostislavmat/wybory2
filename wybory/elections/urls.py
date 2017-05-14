@@ -7,6 +7,8 @@ from . import views
 app_name = 'elections'
 
 
+
+
 urlpatterns = [
     url(r'search$' , views.search , name = "wyszukiwanie"),
     url(r'login$' , views.my_login , name = "login"),

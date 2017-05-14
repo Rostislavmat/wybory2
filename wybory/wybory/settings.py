@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'corsheaders',
     'elections.templatetags.arrays',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

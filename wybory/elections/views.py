@@ -7,13 +7,35 @@ import django
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 import os
-import jinja2
+import jinja2 
 import json
 import random
 from django.db.models import *
-#from django.template.loader import render_to_string
+from django.template.loader import render_to_string
 #import html.parser
 from django.conf import settings
+from rest_framework import serializers
+
+class KrajSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Kraj
+        fields = '__all__'
+
+class WojewodztwoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Wojewodztwo
+        fields = '__all__'
+
+class OkregSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Okreg
+        fields = '__all__'
+
+class GminaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Gmina
+        fields = '__all__'
+
 
 def search(request):
     if request.method == 'POST':
@@ -52,22 +74,26 @@ from django.views.decorators.csrf import csrf_exempt
 def test(request):
     x = request.GET["name"]
     return JsonResponse({x: x})
+@csrf_exempt
 def index(request):
     kraj = Kraj.objects.all()[0]
     title = 'Cały kraj'
     return renderHTML(request,kraj, title, kraj=True)
+@csrf_exempt
 def wojewodztwo(request, wojewodztwo_name):
     woj = Wojewodztwo.objects.get(name=wojewodztwo_name)
     title = 'Wojewodztwo {0}'.format(woj.name)
     return renderHTML( request, woj, title)
+@csrf_exempt
 def okreg(request, okreg_name):
     okr = Okreg.objects.get(name=okreg_name)
     title = 'Okreg {0}'.format(okr.name)
-    return renderHTML( request ,okr, title)
+    return renderHTML(request ,okr, title)
+@csrf_exempt
 def gmina(request, gmina_name):
     gm = Gmina.objects.get(code=gmina_name)
     title = 'Gmina {0}'.format(gm.name)
-    return renderHTML(request,gm, title,simple=True)
+    return JsonResponse(request,gm, title,simple=True)
 
 def change(request, gmina_name):
     user = request.user
@@ -106,23 +132,43 @@ def change(request, gmina_name):
         return my_login(request,"/gmina/"+gmina_name+ "/change/")
 
 
+from django.template.response import TemplateResponse
 
 
 
 def renderHTML(request , region, title, kraj=False , simple = False):
     q = region.buildQ()
-    vals = {'region_info': region,
+    vals = {
             'title': title,
             'data_pie' : buildPieChartData(q),
             }
+    json_data = json.dumps(vals,)
+    return JsonResponse(json_data,safe=False)
+    try:
+        vals['region_info'] =  JSONRenderer().render(KrajSerializer(region).data)
+    except Exception:
+        zxc=123
+    try:
+        vals['region_info'] =  JSONRenderer().render(WojewodztwoSerializer(region).data)
+    except Exception:
+        zxc=123
+    try:
+        vals['region_info'] =  JSONRenderer().render(OkregSerializer(region).data)
+    except Exception:
+        zxc=123
+    try:
+        vals['region_info'] =  JSONRenderer().render(GminaSerializer(region).data)
+    except Exception:
+        zxc=123
     if simple:
         vals['change'] = 'change'
     else:
             if kraj:
                 vals['data'] = buildMapData()
-            vals['regions_data'] =  (region.subunit().objects.filter(q))
+            #vals['regions_data'] =  (region.subunit().objects.filter(q))
             vals['unit'] = region.subunit_str;
-    return render(request,'stats.html', vals)
+    json_data = json.dumps(vals)
+    return JsonResponse(json_data)
 
 
 

@@ -1,0 +1,12 @@
+make_aware
+remote_model
+absolute_import
+django
+coreapi
+is_crispy
+format_value
+remote_field
+remote_queryset
+crispy_forms
+make_aware_orig
+settings

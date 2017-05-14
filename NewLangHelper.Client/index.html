@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>New Lang Helper</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-cookies/angular-cookies.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link href="Content/Site.css" rel="stylesheet" />
+
+    <script src="Scripts/App.js"></script>
+    <script src="Scripts/IndexCtrl.js"></script>
+    <script src="Scripts/HomeCtrl.js"></script>
+    <script src="Scripts/LoginCtrl.js"></script>
+    <script src="Scripts/RegisterCtrl.js"></script>
+    <script src="Scripts/LogoutCtrl.js"></script>
+</head>
+<body ng-controller="IndexCtrl">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">New Lang Helper</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/#/home">Home</a></li>
+                <li><a href="/#/contact">Contact</a></li>
+            </ul>
+            <ng-include src="loginPath"></ng-include>
+        </div>
+    </div>
+</div>
+    
+<div class="container body-content">
+    <ng-view></ng-view>
+</div>
+</body>
+</html>

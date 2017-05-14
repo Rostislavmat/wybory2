@@ -6363,3 +6363,284 @@ System.FormatException: Input string was not in a correct format.
 2017-04-17T17:14:54: Saving group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\mathfilters"
 2017-04-17T17:14:55: End of group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\mathfilters"
 2017-04-17T17:14:55: Deleting 0 files
+
+2017-05-11T22:29:11: Start analysis
+2017-05-11T22:29:11: IncludeModulesFromModulePath = win32com
+2017-05-11T22:29:12: Deleting 0 files
+2017-05-11T22:29:12: astropy.CallDepth = 0
+2017-05-11T22:29:12: delphixpy.CallDepth = 0
+2017-05-11T22:29:12: matplotlib.CallDepth = 3
+2017-05-11T22:29:12: pandas.CallDepth = 0
+2017-05-11T22:29:12: sympy.CallDepth = 0
+2017-05-11T22:29:12: Start group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework" with 55 files
+2017-05-11T22:29:12: Parsing "rest_framework.authentication" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authentication.py")
+2017-05-11T22:29:12: Parsing "rest_framework.compat" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\compat.py")
+2017-05-11T22:29:12: Parsing "rest_framework.decorators" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\decorators.py")
+2017-05-11T22:29:12: Parsing "rest_framework.documentation" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\documentation.py")
+2017-05-11T22:29:12: Parsing "rest_framework.exceptions" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\exceptions.py")
+2017-05-11T22:29:12: Parsing "rest_framework.fields" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\fields.py")
+2017-05-11T22:29:12: Parsing "rest_framework.filters" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\filters.py")
+2017-05-11T22:29:12: Parsing "rest_framework.generics" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\generics.py")
+2017-05-11T22:29:12: Parsing "rest_framework.metadata" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\metadata.py")
+2017-05-11T22:29:12: Parsing "rest_framework.mixins" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\mixins.py")
+2017-05-11T22:29:12: Parsing "rest_framework.models" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\models.py")
+2017-05-11T22:29:12: Parsing "rest_framework.negotiation" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\negotiation.py")
+2017-05-11T22:29:12: Parsing "rest_framework.pagination" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\pagination.py")
+2017-05-11T22:29:12: Parsing "rest_framework.parsers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\parsers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.permissions" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\permissions.py")
+2017-05-11T22:29:12: Parsing "rest_framework.relations" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\relations.py")
+2017-05-11T22:29:12: Parsing "rest_framework.renderers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\renderers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.request" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\request.py")
+2017-05-11T22:29:12: Parsing "rest_framework.response" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\response.py")
+2017-05-11T22:29:12: Parsing "rest_framework.reverse" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\reverse.py")
+2017-05-11T22:29:12: Parsing "rest_framework.routers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\routers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.schemas" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\schemas.py")
+2017-05-11T22:29:12: Parsing "rest_framework.serializers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\serializers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.settings" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\settings.py")
+2017-05-11T22:29:12: Parsing "rest_framework.status" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\status.py")
+2017-05-11T22:29:12: Parsing "rest_framework.test" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\test.py")
+2017-05-11T22:29:12: Parsing "rest_framework.throttling" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\throttling.py")
+2017-05-11T22:29:12: Parsing "rest_framework.urlpatterns" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\urlpatterns.py")
+2017-05-11T22:29:12: Parsing "rest_framework.urls" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\urls.py")
+2017-05-11T22:29:12: Parsing "rest_framework.validators" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\validators.py")
+2017-05-11T22:29:12: Parsing "rest_framework.versioning" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\versioning.py")
+2017-05-11T22:29:12: Parsing "rest_framework.views" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\views.py")
+2017-05-11T22:29:12: Parsing "rest_framework.viewsets" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\viewsets.py")
+2017-05-11T22:29:12: Parsing "rest_framework" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\__init__.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.admin" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\admin.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.apps" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\apps.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.models" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\models.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.serializers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\serializers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.views" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\views.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\__init__.py")
+2017-05-11T22:29:12: Parsing "rest_framework.authtoken.migrations" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\authtoken\migrations\__init__.py")
+2017-05-11T22:29:12: Parsing "rest_framework.templatetags.rest_framework" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\templatetags\rest_framework.py")
+2017-05-11T22:29:12: Parsing "rest_framework.templatetags" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\templatetags\__init__.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.breadcrumbs" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\breadcrumbs.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.encoders" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\encoders.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.field_mapping" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\field_mapping.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.formatting" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\formatting.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.html" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\html.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.humanize_datetime" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\humanize_datetime.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.mediatypes" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\mediatypes.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.model_meta" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\model_meta.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.representation" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\representation.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.serializer_helpers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\serializer_helpers.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils.urls" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\urls.py")
+2017-05-11T22:29:12: Parsing "rest_framework.utils" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework\utils\__init__.py")
+2017-05-11T22:29:12: Parsing complete
+2017-05-11T22:29:12: Analyzing "rest_framework.authentication"
+2017-05-11T22:29:12: Analyzing "rest_framework.compat"
+2017-05-11T22:29:12: Analyzing "rest_framework.decorators"
+2017-05-11T22:29:12: Analyzing "rest_framework.documentation"
+2017-05-11T22:29:12: Analyzing "rest_framework.exceptions"
+2017-05-11T22:29:12: Analyzing "rest_framework.fields"
+2017-05-11T22:29:12: Analyzing "rest_framework.filters"
+2017-05-11T22:29:12: Analyzing "rest_framework.generics"
+2017-05-11T22:29:12: Analyzing "rest_framework.metadata"
+2017-05-11T22:29:12: Analyzing "rest_framework.mixins"
+2017-05-11T22:29:12: Analyzing "rest_framework.models"
+2017-05-11T22:29:12: Analyzing "rest_framework.negotiation"
+2017-05-11T22:29:12: Analyzing "rest_framework.pagination"
+2017-05-11T22:29:12: Analyzing "rest_framework.parsers"
+2017-05-11T22:29:12: Analyzing "rest_framework.permissions"
+2017-05-11T22:29:12: Analyzing "rest_framework.relations"
+2017-05-11T22:29:12: Analyzing "rest_framework.renderers"
+2017-05-11T22:29:12: Analyzing "rest_framework.request"
+2017-05-11T22:29:12: Analyzing "rest_framework.response"
+2017-05-11T22:29:12: Analyzing "rest_framework.reverse"
+2017-05-11T22:29:12: Analyzing "rest_framework.routers"
+2017-05-11T22:29:12: Analyzing "rest_framework.schemas"
+2017-05-11T22:29:12: Analyzing "rest_framework.serializers"
+2017-05-11T22:29:12: Analyzing "rest_framework.settings"
+2017-05-11T22:29:12: Analyzing "rest_framework.status"
+2017-05-11T22:29:12: Analyzing "rest_framework.test"
+2017-05-11T22:29:12: Analyzing "rest_framework.throttling"
+2017-05-11T22:29:12: Analyzing "rest_framework.urlpatterns"
+2017-05-11T22:29:12: Analyzing "rest_framework.urls"
+2017-05-11T22:29:12: Analyzing "rest_framework.validators"
+2017-05-11T22:29:12: Analyzing "rest_framework.versioning"
+2017-05-11T22:29:12: Analyzing "rest_framework.views"
+2017-05-11T22:29:12: Analyzing "rest_framework.viewsets"
+2017-05-11T22:29:12: Analyzing "rest_framework"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.admin"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.apps"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.models"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.serializers"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.views"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken"
+2017-05-11T22:29:12: Analyzing "rest_framework.authtoken.migrations"
+2017-05-11T22:29:12: Analyzing "rest_framework.templatetags.rest_framework"
+2017-05-11T22:29:12: Analyzing "rest_framework.templatetags"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.breadcrumbs"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.encoders"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.field_mapping"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.formatting"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.html"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.humanize_datetime"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.mediatypes"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.model_meta"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.representation"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.serializer_helpers"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils.urls"
+2017-05-11T22:29:12: Analyzing "rest_framework.utils"
+2017-05-11T22:29:12: Starting analysis of 55 modules
+2017-05-11T22:29:15: Analysis complete
+2017-05-11T22:29:15: Saving group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework"
+2017-05-11T22:29:15: [ERROR] rest_framework.views.get_view_description: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.relations.RelatedField.RelatedField: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.relations.ManyRelatedField.ManyRelatedField: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.relations.ManyRelatedField.ManyRelatedField: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.fields.iter_options: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.fields.iter_options: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.fields.Field.Field: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.fields.Field.Field: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.utils.representation.smart_repr: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.utils.field_mapping.needs_label: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.utils.field_mapping.get_field_kwargs: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.serializers.BaseSerializer.BaseSerializer: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.serializers.BaseSerializer.BaseSerializer: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.serializers.ListSerializer.ListSerializer: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.serializers.ListSerializer.ListSerializer: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.parsers.DataAndFiles.DataAndFiles: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.parsers.DataAndFiles.DataAndFiles: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.test.APIRequestFactory.APIRequestFactory: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.test.APIRequestFactory.APIRequestFactory: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.test.APIRequestFactory.APIRequestFactory: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.test.APIRequestFactory.APIRequestFactory: Unknown has no name
+2017-05-11T22:29:15: [ERROR] rest_framework.test.APIRequestFactory.APIRequestFactory: Unknown has no name
+2017-05-11T22:29:15: End of group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\rest_framework"
+2017-05-11T22:29:16: Deleting 0 files
+
+2017-05-11T22:29:31: Start analysis
+2017-05-11T22:29:31: IncludeModulesFromModulePath = win32com
+2017-05-11T22:29:32: Deleting 0 files
+2017-05-11T22:29:32: astropy.CallDepth = 0
+2017-05-11T22:29:32: delphixpy.CallDepth = 0
+2017-05-11T22:29:32: matplotlib.CallDepth = 3
+2017-05-11T22:29:32: pandas.CallDepth = 0
+2017-05-11T22:29:32: sympy.CallDepth = 0
+2017-05-11T22:29:32: Start group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown" with 30 files
+2017-05-11T22:29:33: Parsing "markdown.blockparser" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\blockparser.py")
+2017-05-11T22:29:33: Parsing "markdown.blockprocessors" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\blockprocessors.py")
+2017-05-11T22:29:33: Parsing "markdown.inlinepatterns" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\inlinepatterns.py")
+2017-05-11T22:29:33: Parsing "markdown.odict" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\odict.py")
+2017-05-11T22:29:33: Parsing "markdown.postprocessors" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\postprocessors.py")
+2017-05-11T22:29:33: Parsing "markdown.preprocessors" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\preprocessors.py")
+2017-05-11T22:29:33: Parsing "markdown.serializers" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\serializers.py")
+2017-05-11T22:29:33: Parsing "markdown.treeprocessors" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\treeprocessors.py")
+2017-05-11T22:29:33: Parsing "markdown.util" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\util.py")
+2017-05-11T22:29:33: Parsing "markdown" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\__init__.py")
+2017-05-11T22:29:33: Parsing "markdown.__main__" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\__main__.py")
+2017-05-11T22:29:33: Parsing "markdown.__version__" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\__version__.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.abbr" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\abbr.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.admonition" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\admonition.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.attr_list" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\attr_list.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.codehilite" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\codehilite.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.def_list" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\def_list.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.extra" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\extra.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.fenced_code" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\fenced_code.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.footnotes" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\footnotes.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.headerid" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\headerid.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.meta" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\meta.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.nl2br" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\nl2br.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.sane_lists" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\sane_lists.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.smarty" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\smarty.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.smart_strong" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\smart_strong.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.tables" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\tables.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.toc" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\toc.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions.wikilinks" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\wikilinks.py")
+2017-05-11T22:29:33: Parsing "markdown.extensions" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown\extensions\__init__.py")
+2017-05-11T22:29:33: Parsing complete
+2017-05-11T22:29:33: Analyzing "markdown.blockparser"
+2017-05-11T22:29:33: Analyzing "markdown.blockprocessors"
+2017-05-11T22:29:33: Analyzing "markdown.inlinepatterns"
+2017-05-11T22:29:33: Analyzing "markdown.odict"
+2017-05-11T22:29:33: Analyzing "markdown.postprocessors"
+2017-05-11T22:29:33: Analyzing "markdown.preprocessors"
+2017-05-11T22:29:33: Analyzing "markdown.serializers"
+2017-05-11T22:29:33: Analyzing "markdown.treeprocessors"
+2017-05-11T22:29:33: Analyzing "markdown.util"
+2017-05-11T22:29:33: Analyzing "markdown"
+2017-05-11T22:29:33: Analyzing "markdown.__main__"
+2017-05-11T22:29:33: Analyzing "markdown.__version__"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.abbr"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.admonition"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.attr_list"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.codehilite"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.def_list"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.extra"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.fenced_code"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.footnotes"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.headerid"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.meta"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.nl2br"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.sane_lists"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.smarty"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.smart_strong"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.tables"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.toc"
+2017-05-11T22:29:33: Analyzing "markdown.extensions.wikilinks"
+2017-05-11T22:29:33: Analyzing "markdown.extensions"
+2017-05-11T22:29:33: Starting analysis of 30 modules
+2017-05-11T22:29:34: Analysis complete
+2017-05-11T22:29:34: Saving group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown"
+2017-05-11T22:29:34: End of group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\markdown"
+2017-05-11T22:29:35: Deleting 0 files
+
+2017-05-11T22:29:43: Start analysis
+2017-05-11T22:29:43: IncludeModulesFromModulePath = win32com
+2017-05-11T22:29:44: Deleting 0 files
+2017-05-11T22:29:44: astropy.CallDepth = 0
+2017-05-11T22:29:44: delphixpy.CallDepth = 0
+2017-05-11T22:29:44: matplotlib.CallDepth = 3
+2017-05-11T22:29:44: pandas.CallDepth = 0
+2017-05-11T22:29:44: sympy.CallDepth = 0
+2017-05-11T22:29:44: Start group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters" with 16 files
+2017-05-11T22:29:44: Parsing "django_filters.compat" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\compat.py")
+2017-05-11T22:29:44: Parsing "django_filters.conf" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\conf.py")
+2017-05-11T22:29:44: Parsing "django_filters.constants" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\constants.py")
+2017-05-11T22:29:44: Parsing "django_filters.exceptions" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\exceptions.py")
+2017-05-11T22:29:44: Parsing "django_filters.fields" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\fields.py")
+2017-05-11T22:29:44: Parsing "django_filters.filters" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\filters.py")
+2017-05-11T22:29:44: Parsing "django_filters.filterset" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\filterset.py")
+2017-05-11T22:29:44: Parsing "django_filters.models" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\models.py")
+2017-05-11T22:29:44: Parsing "django_filters.utils" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\utils.py")
+2017-05-11T22:29:44: Parsing "django_filters.views" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\views.py")
+2017-05-11T22:29:44: Parsing "django_filters.widgets" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\widgets.py")
+2017-05-11T22:29:44: Parsing "django_filters" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\__init__.py")
+2017-05-11T22:29:44: Parsing "django_filters.rest_framework.backends" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\rest_framework\backends.py")
+2017-05-11T22:29:44: Parsing "django_filters.rest_framework.filters" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\rest_framework\filters.py")
+2017-05-11T22:29:44: Parsing "django_filters.rest_framework.filterset" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\rest_framework\filterset.py")
+2017-05-11T22:29:44: Parsing "django_filters.rest_framework" ("e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters\rest_framework\__init__.py")
+2017-05-11T22:29:44: Parsing complete
+2017-05-11T22:29:44: Analyzing "django_filters.compat"
+2017-05-11T22:29:44: Analyzing "django_filters.conf"
+2017-05-11T22:29:44: Analyzing "django_filters.constants"
+2017-05-11T22:29:44: Analyzing "django_filters.exceptions"
+2017-05-11T22:29:44: Analyzing "django_filters.fields"
+2017-05-11T22:29:44: Analyzing "django_filters.filters"
+2017-05-11T22:29:44: Analyzing "django_filters.filterset"
+2017-05-11T22:29:44: Analyzing "django_filters.models"
+2017-05-11T22:29:44: Analyzing "django_filters.utils"
+2017-05-11T22:29:44: Analyzing "django_filters.views"
+2017-05-11T22:29:44: Analyzing "django_filters.widgets"
+2017-05-11T22:29:44: Analyzing "django_filters"
+2017-05-11T22:29:44: Analyzing "django_filters.rest_framework.backends"
+2017-05-11T22:29:44: Analyzing "django_filters.rest_framework.filters"
+2017-05-11T22:29:44: Analyzing "django_filters.rest_framework.filterset"
+2017-05-11T22:29:44: Analyzing "django_filters.rest_framework"
+2017-05-11T22:29:44: Starting analysis of 16 modules
+2017-05-11T22:29:45: Analysis complete
+2017-05-11T22:29:45: Saving group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters"
+2017-05-11T22:29:45: [ERROR] django_filters.widgets.BaseCSVWidget.BaseCSVWidget: Unknown has no name
+2017-05-11T22:29:45: End of group "e:\projects\wybory2\wybory\wybory\env\lib\site-packages\django_filters"
+2017-05-11T22:29:46: Deleting 0 files
+
+2017-05-11T22:38:13: Start analysis
+2017-05-11T22:38:13: IncludeModulesFromModulePath = win32com
+2017-05-11T22:38:14: Deleting 0 files
+
+2017-05-11T22:38:15: Start analysis
+2017-05-11T22:38:15: IncludeModulesFromModulePath = win32com
+2017-05-11T22:38:16: Deleting 0 files

@@ -29,22 +29,37 @@ function displayQuestions(jsonQuestions) {
         };
     }
 }
+function decode_utf8(s) {
+    return decodeURIComponent(escape(s));
+}
+function encode_utf8(s) {
+    return unescape(encodeURIComponent(s));
+}
 
+function unicodeToChar(text) {
+    return text.replace(/\\u[\dA-F]{4}/gi,
+        function (match) {
+            return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+        });
+}
 function refresh() {
     var req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:8000/test/?name=arthas");
+    req.open("GET", "http://localhost:8000/");
     req.addEventListener("error", function() {
         alert("Error: " + this.responseText);
         document.getElementById("status").firstChild.textContent = "offline";
     });
     req.addEventListener("load", function() {
         //displayQuestions(this.responseText);
-
+        var data = JSON.parse(this.responseText);
+        document.body.innerHTML = unicodeToChar(this.responseText);
         //localStorage.setItem("questions", this.responseText);
-        document.getElementById("status").firstChild.textContent = "online";
+        //document.getElementById("status").firstChild.textContent = "online";
     });
     req.send();
 }
+
+
 
 function ask() {
     var req = new XMLHttpRequest();

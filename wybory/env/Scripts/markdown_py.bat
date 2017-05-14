@@ -1,0 +1,1 @@
+@"E:\projects\wybory2\wybory\wybory\env\Scripts\python.exe" "E:\projects\wybory2\wybory\wybory\env\Scripts\markdown_py" %*
