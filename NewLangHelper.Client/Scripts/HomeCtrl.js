@@ -1,3 +1,25 @@
+google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+        function drawChart(data)
+         {
+            var data2 = new google.visualization.DataTable(data);
+            var options2 = {
+            region: 'PL',
+            resolution: 'provinces',
+            datalessRegionColor: 'transparent',
+            colorAxis: { colors: ['#c3c90a', '#d65906', '#8c0106'] },
+                };
+
+            var chart2 = new google.visualization.GeoChart(document.getElementById('Mapa'));
+            google.visualization.events.addListener(chart2, 'select', function () {
+            var selection = chart2.getSelection();
+            if (selection.length > 0) {
+                window.open('./woje/' + data2.getValue(selection[0].row, 0), "_self");
+            }
+        });
+        chart2.draw(data2, options2);
+        }
+
+
 (function () {
     'use strict';
 
@@ -19,7 +41,7 @@
         const token = $cookies.get('token');
         $http({
             method: 'GET',
-            url: `${$rootScope.serverUrl}/groups/`, //maybe TODO
+            url: `${$rootScope.serverUrl}/map/`, //maybe TODO
             headers: {
                 Authorization: token
             }

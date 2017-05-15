@@ -15,6 +15,11 @@ from django.template.loader import render_to_string
 #import html.parser
 from django.conf import settings
 from rest_framework import serializers
+from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+
 
 class KrajSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -35,6 +40,29 @@ class GminaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Gmina
         fields = '__all__'
+
+
+class GroupDetail(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk, format=None):
+        group = DBHandler.get_group_from_id(pk)
+        words = DBHandler.get_words_from_group(group)
+        serializer = GroupSerializer(group, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk):
+        group = DBHandler.get_group_from_id(pk)
+        serializer = GroupSerializer(group, data=request.data, context={'request': request})
+        if not serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+    def delete(self, request, pk):
+        group = DBHandler.get_group_from_id(pk)
+        group.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 def search(request):
@@ -173,7 +201,7 @@ def renderHTML(request , region, title, kraj=False , simple = False):
 
 
 
-def buildMapData():
+def buildMapData(request):
     data = {}
     cols = [{'label': 'County', 'type': 'string'},
             {'label': 'Frekwencja', 'type': 'number'}]
@@ -192,7 +220,7 @@ def buildMapData():
     data['rows'] = rows
 
     json_data = json.dumps(data, sort_keys=True, indent=4)
-    return json_data
+    return JsonResponse(dict(data),status=status.HTTP_200_OK)
 
 def getCandidatesAndVotes(q=Q()):
     candidates = Candidate.objects.all().order_by('name')

@@ -10,7 +10,7 @@
     runFunc.$inject = ['$rootScope', '$cookies'];
 
     function runFunc($rootScope, $cookies) {
-        $rootScope.serverUrl = 'http://localhost:8001';
+        $rootScope.serverUrl = 'http://localhost:8000';
         $rootScope.jsonType = 'application/json';
 
         $rootScope.username = $cookies.get('username');

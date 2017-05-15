@@ -29,6 +29,27 @@ function displayQuestions(jsonQuestions) {
         };
     }
 }
+
+google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+function drawChart(data) {
+    var data2 = new google.visualization.DataTable(data);
+    var options2 = {
+        region: 'PL',
+        resolution: 'provinces',
+        datalessRegionColor: 'transparent',
+        colorAxis: { colors: ['#c3c90a', '#d65906', '#8c0106'] },
+    };
+
+    var chart2 = new google.visualization.GeoChart(document.getElementById('Mapa'));
+    google.visualization.events.addListener(chart2, 'select', function () {
+        var selection = chart2.getSelection();
+        if (selection.length > 0) {
+            window.open('./woje/' + data2.getValue(selection[0].row, 0), "_self");
+        }
+    });
+    chart2.draw(data2, options2);
+}
+
 function decode_utf8(s) {
     return decodeURIComponent(escape(s));
 }
@@ -44,7 +65,7 @@ function unicodeToChar(text) {
 }
 function refresh() {
     var req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:8000/");
+    req.open("GET", "http://localhost:8000/map/");
     req.addEventListener("error", function() {
         alert("Error: " + this.responseText);
         document.getElementById("status").firstChild.textContent = "offline";
@@ -52,7 +73,9 @@ function refresh() {
     req.addEventListener("load", function() {
         //displayQuestions(this.responseText);
         var data = JSON.parse(this.responseText);
-        document.body.innerHTML = unicodeToChar(this.responseText);
+        drawChart(data);
+        localStorage.setItem("map", data);
+        //document.body.innerHTML = unicodeToChar(this.responseText);
         //localStorage.setItem("questions", this.responseText);
         //document.getElementById("status").firstChild.textContent = "online";
     });
