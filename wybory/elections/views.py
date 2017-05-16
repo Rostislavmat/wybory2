@@ -40,6 +40,7 @@ class GminaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gmina
         fields = '__all__'
+        depth = 1
 
 
 

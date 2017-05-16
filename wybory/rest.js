@@ -1,37 +1,5 @@
 var lvl, name = "Polska", okreg = "0", flag = 0;
 
-function displayQuestions(jsonQuestions) {
-    var data = JSON.parse(jsonQuestions);
-
-    var questions = document.getElementById("questions");
-
-    while (questions.firstChild) {
-        questions.removeChild(questions.firstChild);
-    }
-
-    for (var ix in data) {
-        var li = questions.appendChild(document.createElement("li"));
-
-        li.appendChild(document.createTextNode(data[ix]["question"] + " "));
-
-        var delLink = li.appendChild(document.createElement("a"));
-        delLink.appendChild(document.createTextNode("[x]"));
-        delLink.questionId = data[ix]["pk"];
-        delLink.onclick = function() {
-            var req = new XMLHttpRequest();
-            req.open("DELETE", "http://localhost:8000/rest/delete/" + this.questionId + "/");
-            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            req.addEventListener("error", function() {
-                alert("Error: " + this.responseText);
-            });
-            req.addEventListener("load", function() {
-                alert("OK");
-            });
-            req.send();
-        };
-    }
-}
-
 google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
 
 function reset() {
@@ -88,11 +56,54 @@ function unicodeToChar(text) {
 }
 
 
+function drawSearch()
+{
+    var i;
+    $("tr").remove(".search_del");
+    var previousData = localStorage.getItem("search");
+
+    if (previousData != null) {
+        var result = JSON.parse(previousData);
+        //var sub = result["result"];
+        var table = document.getElementById("table2");
+        for (i = 0; i < result.length; i++) {
+
+            var tr = document.createElement('tr');
+            var h1 = document.createElement('td');
+            h1.appendChild(document.createTextNode(result[i].name));
+            tr.appendChild(h1);
+            var h2 = document.createElement('td');
+            h2.style.visibility = "hidden";
+            h2.appendChild(document.createTextNode(result[i].okreg.name));
+            tr.appendChild(h2);
+            var createClickHandler =
+                function (row) {
+                    return function () {
+                        var cell = row.getElementsByTagName("td")[0];
+                        var id = cell.innerHTML;
+                        okreg = row.getElementsByTagName("td")[1].innerHTML;
+                        lvl = 2;
+                        nextStage(id);
+                    };
+                };
+
+            tr.onclick = createClickHandler(tr);
+            tr.classList.add("search_del");
+            table.appendChild(tr);
+        }
+    }
+    else {
+        refresh();
+    }
+
+
+}
+
 function Search()
 {
     var form = document.getElementsByName("nazwa")[0].value;
     var req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:8000/search/" + form + " /");
+    req.open("GET", "http://localhost:8000/search/" + form + "/");
     req.addEventListener("error", function () {
         alert("Error: " + this.responseText);
         document.getElementById("status").firstChild.textContent = "offline";
@@ -166,25 +177,26 @@ function refresh() {
         //document.getElementById("status").firstChild.textContent = "online";
     });
     req_pie.send();
-    req_data = new XMLHttpRequest();
-    req_data.open("GET", "http://localhost:8000/data/" + lvl + "/" + name + "/" + okreg + "/");
-    req_data.addEventListener("error", function () {
-        alert("Error: " + this.responseText);
-        document.getElementById("status").firstChild.textContent = "offline";
-    });
-    req_data.addEventListener("load", function () {
-        //displayQuestions(this.responseText);
-        //var data = JSON.parse(this.responseText);
-        localStorage.setItem("data", this.responseText);
-        localStorage.removeItem("data");
-        localStorage.setItem("data", this.responseText);
-        
-        //document.body.innerHTML = unicodeToChar(this.responseText);
-        //localStorage.setItem("questions", this.responseText);
-        //document.getElementById("status").firstChild.textContent = "online";
-    });
-    req_data.send();
+    if (lvl < 3) {
+        req_data = new XMLHttpRequest();
+        req_data.open("GET", "http://localhost:8000/data/" + lvl + "/" + name + "/" + okreg + "/");
+        req_data.addEventListener("error", function () {
+            alert("Error: " + this.responseText);
+            document.getElementById("status").firstChild.textContent = "offline";
+        });
+        req_data.addEventListener("load", function () {
+            //displayQuestions(this.responseText);
+            //var data = JSON.parse(this.responseText);
+            localStorage.setItem("data", this.responseText);
+            localStorage.removeItem("data");
+            localStorage.setItem("data", this.responseText);
 
+            //document.body.innerHTML = unicodeToChar(this.responseText);
+            //localStorage.setItem("questions", this.responseText);
+            //document.getElementById("status").firstChild.textContent = "online";
+        });
+        req_data.send();
+    }
 }
 
 
@@ -218,35 +230,35 @@ function nextStage(x) {
     if (lvl == 2) {
         okreg = x;
     }
-    if (lvl == 0)
+    if (lvl != 0) 
     {
         document.getElementById("Mapa").style.visibility = "hidden";
+        document.getElementById("Mapa").style.height = "0";
     }
     name = x;
 }
 
 function Update() {
-    refresh();
+    try {
+        refresh();
+    }
+    catch (err) {
+        var thehell = 1;
+    }
     drawNavigation();
     drawPie();
     setstats();
     drawMap();
+    drawSearch();
     setTimeout(Update, 5000);
 }
 
 function drawNavigation() {
-    var myNodelist = document.getElementsByTagName('tr');
     var i;
-    console.log(myNodelist);
     $("tr").remove(".to_del");
-    /*var len = myNodelist.length;
-    for (i = 1; i < len; i++) {
-        myNodelist[i].remove();
-    }*/
     var previousData = localStorage.getItem("data");
 
     if (previousData != null) {
-        console.log(previousData);
         var result = JSON.parse(previousData);
         var sub = result["result"];
         var table = document.getElementById("table");
