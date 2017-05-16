@@ -1,4 +1,4 @@
-var lvl, name = "Polska", okreg = "0", flag = 0;
+var lvl, name = "Polska", okreg = "0", flag = 0, username = "" , pass ="";
 
 google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
 
@@ -121,8 +121,10 @@ function Search()
     });
     req.send();
 }
-
-
+function Logout() {
+    login = "";
+    document.getElementById("acc").firstChild.textContent = "loser";
+}
 function Log() {
     var login = document.getElementsByName("login")[0].value;
     var password = document.getElementsByName("password")[0].value;
@@ -137,10 +139,12 @@ function Log() {
         if (this.status != 201)
         {
             alert("WRONG");
-            document.getElementById("acc").firstChild.textContent = "loser";
+            document.getElementById("acc").firstChild.textContent = "friend";
         }
         else
         {
+            username = login;
+            pass = password;
             document.getElementById("acc").firstChild.textContent = login;
         }
 

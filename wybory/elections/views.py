@@ -19,7 +19,8 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 class KrajSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,16 +48,16 @@ class GminaSerializer(serializers.ModelSerializer):
 def search(request , name1 ):
     q = Gmina.objects.filter(name__startswith = name1)
     return JsonResponse((GminaSerializer(q, many = True).data),safe = False)
-
-def my_login(request , login , password):
+@csrf_exempt
+def my_login(request , login1 , password1):
     vals = {}
-    form = SearchForm(request.POST)
     try :
-        user = User.objects.create_user(login, '', password)
+        user = User.objects.create_user(login1, '', password1)
         user.save()
     except:
         None
-    user = authenticate(login, password=password)
+    wtf = User.objects.all();
+    user = authenticate(username = login1, password = password1)
     if user is not None:
         login(request, user)
         return JsonResponse(vals,status = 201)
@@ -66,8 +67,7 @@ def my_login(request , login , password):
 def my_logout(request):
     logout(request)
     return Response(status = 201)
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+
 @csrf_exempt
 def test(request):
     x = request.GET["name"]
