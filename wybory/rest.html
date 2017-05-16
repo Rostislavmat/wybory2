@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
-        <title>REST Q&amp;A</title>
-        <meta charset="utf-8">
+        <title>Wybory</title>
+        <meta charset='utf-8'>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" charset="utf-8" src="rest.js"></script>
             <script type="text/javascript">
@@ -11,9 +11,56 @@
         <link rel="stylesheet" href="rest.css" type="text/css">
     </head>
     <body onload="init()">
+            <header>
+            <h1 id="h1"> <strong> Wybory : {{ title }} </strong> </h1>
+            </header>
+        <div class="general_stats">
+            <p id="Upr">
+                Uprawnionych: {{ region_info.max_votes }}
+            </p>
+            <p id="Kart">
+                Kart ważnych: {{ region_info.valid_votes }}
+            </p>
+            <p id="Fre">
+                Frekwencja: {{ "%.2f" % (region_info.valid_votes / region_info.max_votes * 100) | float }}%
+            </p>
+        </div>
         <div id="status">offline</div>
-        <div id="Mapa"></div>
+        <figure id="Mapa"></figure>
+        <figure id="pie"> </figure>
+        <div onclick="draw()"> refresh </div>
+                <h2>Wyniki </h2>
+        <table id="table">
+            <tr>
+                <th>
+                    next lvl unit name
+                </th>
+                <th class="responsive_hide">
+                    Uprawnionych
+                </th>
+                <th class="responsive_hide">
+                    Kart ważnych
+                </th>
+                <th>
+                    Frekwencja
+                </th>
+            </tr>
 
+            <tr>
+                <td>
+                    <a href="../../{{ w.path() }}">{{ w.name }}</a>
+                </td>
+                <td class="responsive_hide">
+                    {{ w.max_votes }}
+                </td>
+                <td class="responsive_hide">
+                    {{ w.valid_votes }}
+                </td>
+                <td>
+                    {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
+                </td>
+            </tr>
 
+        </table>
     </body>
 </html>

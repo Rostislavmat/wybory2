@@ -21,22 +21,22 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 
-class KrajSerializer(serializers.HyperlinkedModelSerializer):
+class KrajSerializer(serializers.ModelSerializer):
     class Meta:
         model = Kraj
         fields = '__all__'
 
-class WojewodztwoSerializer(serializers.HyperlinkedModelSerializer):
+class WojewodztwoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wojewodztwo
         fields = '__all__'
 
-class OkregSerializer(serializers.HyperlinkedModelSerializer):
+class OkregSerializer(serializers.ModelSerializer):
     class Meta:
         model = Okreg
         fields = '__all__'
 
-class GminaSerializer(serializers.HyperlinkedModelSerializer):
+class GminaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gmina
         fields = '__all__'
@@ -123,6 +123,8 @@ def gmina(request, gmina_name):
     title = 'Gmina {0}'.format(gm.name)
     return JsonResponse(request,gm, title,simple=True)
 
+
+
 def change(request, gmina_name):
     user = request.user
     if (user.is_authenticated):
@@ -163,6 +165,23 @@ def change(request, gmina_name):
 from django.template.response import TemplateResponse
 
 
+def getinfo(request, lvl , name1):
+    region = Kraj.objects.get(name = "Polska")
+    if (lvl == "0"):
+        region = Kraj.objects.get(name = "Polska")
+        return JsonResponse(KrajSerializer(region).data)
+    if (lvl == "1") :
+        region = Wojewodztwo.objects.get(name = name1)
+        return JsonResponse((WojewodztwoSerializer(region).data))
+    if (lvl == "2") :
+        region = Okreg.objects.get(name = name1)
+        return JsonResponse((OkregSerializer(region).data))
+    if (lvl == "3") :
+        region = Gmina.objects.get(name = name1)
+        return JsonResponse((GminaSerializer(region).data))
+    
+
+
 
 def renderHTML(request , region, title, kraj=False , simple = False):
     q = region.buildQ()
@@ -170,7 +189,7 @@ def renderHTML(request , region, title, kraj=False , simple = False):
             'title': title,
             'data_pie' : buildPieChartData(q),
             }
-    json_data = json.dumps(vals,)
+    json_data = json.dumps(vals)
     return JsonResponse(json_data,safe=False)
     try:
         vals['region_info'] =  JSONRenderer().render(KrajSerializer(region).data)
@@ -193,13 +212,72 @@ def renderHTML(request , region, title, kraj=False , simple = False):
     else:
             if kraj:
                 vals['data'] = buildMapData()
-            #vals['regions_data'] =  (region.subunit().objects.filter(q))
+            vals['regions_data'] =  (region.subunit().objects.filter(q))
             vals['unit'] = region.subunit_str;
     json_data = json.dumps(vals)
     return JsonResponse(json_data)
 
 
 
+
+
+
+def getCandidatesAndVotes(q=Q()):
+    candidates = Candidate.objects.all().order_by('name')
+    votes = list(map(lambda c: Vote.objects.filter(q).filter(
+        candidate=c).aggregate(Sum('votes'))['votes__sum'], candidates))
+    total = list(zip(candidates, votes))
+    return total
+
+def getPieChart(request, lvl , name1):
+    region = Kraj.objects.get(name = "Polska")
+    if (lvl == "0"):
+        region = Kraj.objects.get(name = "Polska")
+    if (lvl == "1") :
+        region = Wojewodztwo.objects.get(name = name1)
+    if (lvl == "2") :
+        region = Okreg.objects.get(name = name1)
+    if (lvl == "3") :
+        region = Gmina.objects.get(name = name1)
+    q = region.buildQ()
+
+    getCandidatesAndVotes(q)
+
+    data = {}
+    cols = [{'label': 'Kandydat', 'type': 'string'},
+            {'label': 'Liczba głosów', 'type': 'number'}]
+
+    rows = []
+    total = getCandidatesAndVotes(q)
+    for w in total:
+        vals = []
+        turnout_str = '{0}'.format(round(w[1], 2))
+        vals.append({'v': str(w[0]), 'f': None})
+        vals.append({'v': w[1], 'f': turnout_str})
+        rows.append({'c': vals})
+
+    data['cols'] = cols
+    data['rows'] = rows
+
+    json_data = json.dumps(data, sort_keys=True, indent=4)
+    return JsonResponse(dict(data),status=status.HTTP_200_OK)
+
+def getSubunits(request, lvl , name1):
+    region = Kraj.objects.get(name = "Polska")
+    if (lvl == "0"):
+        region = Kraj.objects.get(name = "Polska")
+    if (lvl == "1") :
+        region = Wojewodztwo.objects.get(name = name1)
+    if (lvl == "2") :
+        region = Okreg.objects.get(name = name1)
+    if (lvl == "3") :
+        region = Gmina.objects.get(name = name1)
+    q = region.buildQ()
+    vals =  list(region.subunit().objects.filter(q).values("name","max_votes" , "valid_votes"))
+    json_data = {}
+    json_data["result"] = vals
+    
+    return JsonResponse(json_data)
 
 def buildMapData(request):
     data = {}
@@ -221,32 +299,3 @@ def buildMapData(request):
 
     json_data = json.dumps(data, sort_keys=True, indent=4)
     return JsonResponse(dict(data),status=status.HTTP_200_OK)
-
-def getCandidatesAndVotes(q=Q()):
-    candidates = Candidate.objects.all().order_by('name')
-    votes = list(map(lambda c: Vote.objects.filter(q).filter(
-        candidate=c).aggregate(Sum('votes'))['votes__sum'], candidates))
-    total = list(zip(candidates, votes))
-    return total
-
-def buildPieChartData(q=Q()):
-    getCandidatesAndVotes(q)
-
-    data = {}
-    cols = [{'label': 'Kandydat', 'type': 'string'},
-            {'label': 'Liczba głosów', 'type': 'number'}]
-
-    rows = []
-    total = getCandidatesAndVotes(q)
-    for w in total:
-        vals = []
-        turnout_str = '{0}'.format(round(w[1], 2))
-        vals.append({'v': str(w[0]), 'f': None})
-        vals.append({'v': w[1], 'f': turnout_str})
-        rows.append({'c': vals})
-
-    data['cols'] = cols
-    data['rows'] = rows
-
-    json_data = json.dumps(data, sort_keys=True, indent=4)
-    return json_data

@@ -18,6 +18,9 @@ urlpatterns = [
     url(r'^okreg/(?P<okreg_name>[^/]+)/$', views.okreg, name='okreg'),
     url(r'^gmina/(?P<gmina_name>[^/]+)/$', views.gmina, name='gmina'),
     url(r'^gmina/(?P<gmina_name>[^/]+)/change/$', views.change, name='zmiana'),
+    url(r'^info/(?P<lvl>[^/]+)/(?P<name1>[^/]+)/$', views.getinfo),
+    url(r'^pie/(?P<lvl>[^/]+)/(?P<name1>[^/]+)/$', views.getPieChart),
+    url(r'^data/(?P<lvl>[^/]+)/(?P<name1>[^/]+)/$', views.getSubunits),
     url(r'test',views.test),
     url(r'map',views.buildMapData),
 ]
