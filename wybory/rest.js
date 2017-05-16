@@ -122,6 +122,35 @@ function Search()
     req.send();
 }
 
+
+function Log() {
+    var login = document.getElementsByName("login")[0].value;
+    var password = document.getElementsByName("password")[0].value;
+    var req = new XMLHttpRequest();
+    req.open("GET", "http://localhost:8000/login/" + login + "/" + password + "/");
+    req.addEventListener("error", function () {
+        alert("Error: " + this.responseText);
+        document.getElementById("acc").firstChild.textContent = "loser";
+    });
+    req.addEventListener("load", function () {
+        //displayQuestions(this.responseText);
+        if (this.status != 201)
+        {
+            alert("WRONG");
+            document.getElementById("acc").firstChild.textContent = "loser";
+        }
+        else
+        {
+            document.getElementById("acc").firstChild.textContent = login;
+        }
+
+        //document.body.innerHTML = unicodeToChar(this.responseText);
+        //localStorage.setItem("questions", this.responseText);
+        //document.getElementById("status").firstChild.textContent = "online";
+    });
+    req.send();
+}
+
 function refresh() {
     var req = new XMLHttpRequest();
     req.open("GET", "http://localhost:8000/map/");

@@ -48,27 +48,24 @@ def search(request , name1 ):
     q = Gmina.objects.filter(name__startswith = name1)
     return JsonResponse((GminaSerializer(q, many = True).data),safe = False)
 
-def my_login(request , gmina = "/"):
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
-        try :
-            user = User.objects.create_user(form.data["name_"], '', form.data["pass_"])
-            user.save()
-        except:
-            None
-        user = authenticate(username=form.data["name_"], password=form.data["pass_"])
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(gmina)
-        else:
-            return render(request,'error.html')
+def my_login(request , login , password):
+    vals = {}
+    form = SearchForm(request.POST)
+    try :
+        user = User.objects.create_user(login, '', password)
+        user.save()
+    except:
+        None
+    user = authenticate(login, password=password)
+    if user is not None:
+        login(request, user)
+        return JsonResponse(vals,status = 201)
     else:
-        form = SearchForm()
-        return render(request,'login.html')
+        return JsonResponse(vals,status = 401)
 
 def my_logout(request):
     logout(request)
-    return HttpResponseRedirect("./")
+    return Response(status = 201)
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
@@ -153,47 +150,6 @@ def getinfo(request, lvl , name1 , okreg1):
         okreg_ptr = Okreg.objects.get(name = okreg1);
         region = Gmina.objects.get(name = name1 , okreg = okreg_ptr);
         return JsonResponse((GminaSerializer(region).data))
-    
-
-
-
-def renderHTML(request , region, title, kraj=False , simple = False):
-    q = region.buildQ()
-    vals = {
-            'title': title,
-            'data_pie' : buildPieChartData(q),
-            }
-    json_data = json.dumps(vals)
-    return JsonResponse(json_data,safe=False)
-    try:
-        vals['region_info'] =  JSONRenderer().render(KrajSerializer(region).data)
-    except Exception:
-        zxc=123
-    try:
-        vals['region_info'] =  JSONRenderer().render(WojewodztwoSerializer(region).data)
-    except Exception:
-        zxc=123
-    try:
-        vals['region_info'] =  JSONRenderer().render(OkregSerializer(region).data)
-    except Exception:
-        zxc=123
-    try:
-        vals['region_info'] =  JSONRenderer().render(GminaSerializer(region).data)
-    except Exception:
-        zxc=123
-    if simple:
-        vals['change'] = 'change'
-    else:
-            if kraj:
-                vals['data'] = buildMapData()
-            vals['regions_data'] =  (region.subunit().objects.filter(q))
-            vals['unit'] = region.subunit_str;
-    json_data = json.dumps(vals)
-    return JsonResponse(json_data)
-
-
-
-
 
 
 def getCandidatesAndVotes(q=Q()):
