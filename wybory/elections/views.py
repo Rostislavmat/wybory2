@@ -42,38 +42,10 @@ class GminaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class GroupDetail(APIView):
-    permission_classes = [IsAuthenticated]
 
-    def get(self, request, pk, format=None):
-        group = DBHandler.get_group_from_id(pk)
-        words = DBHandler.get_words_from_group(group)
-        serializer = GroupSerializer(group, context={'request': request})
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def post(self, request, pk):
-        group = DBHandler.get_group_from_id(pk)
-        serializer = GroupSerializer(group, data=request.data, context={'request': request})
-        if not serializer.is_valid():
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-
-    def delete(self, request, pk):
-        group = DBHandler.get_group_from_id(pk)
-        group.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-def search(request):
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
-        q = Gmina.objects.filter(name__startswith = form.data["name_field"])
-        vals = { 'names' : q,}
-        return HttpResponse(render(request,'search.html',vals))
-    else:
-        form = SearchForm()
-        return render(request,'input.html')
+def search(request , name1 ):
+    q = Gmina.objects.filter(name__startswith = name1)
+    return JsonResponse((GminaSerializer(q, many = True).data),safe = False)
 
 def my_login(request , gmina = "/"):
     if request.method == 'POST':
@@ -165,7 +137,7 @@ def change(request, gmina_name):
 from django.template.response import TemplateResponse
 
 
-def getinfo(request, lvl , name1):
+def getinfo(request, lvl , name1 , okreg1):
     region = Kraj.objects.get(name = "Polska")
     if (lvl == "0"):
         region = Kraj.objects.get(name = "Polska")
@@ -177,7 +149,8 @@ def getinfo(request, lvl , name1):
         region = Okreg.objects.get(name = name1)
         return JsonResponse((OkregSerializer(region).data))
     if (lvl == "3") :
-        region = Gmina.objects.get(name = name1)
+        okreg_ptr = Okreg.objects.get(name = okreg1);
+        region = Gmina.objects.get(name = name1 , okreg = okreg_ptr);
         return JsonResponse((GminaSerializer(region).data))
     
 
@@ -229,7 +202,14 @@ def getCandidatesAndVotes(q=Q()):
     total = list(zip(candidates, votes))
     return total
 
-def getPieChart(request, lvl , name1):
+
+def getQ(lvl , name1 , okreg1) :
+    if (lvl == "3") :
+        okreg_ptr = Okreg.objects.get(name = okreg1);
+        return  Gmina.objects.get(name = name1 , okreg = okreg_ptr);
+    return getSimpleQ(lvl,name1);
+
+def getSimpleQ(lvl , name1) :
     region = Kraj.objects.get(name = "Polska")
     if (lvl == "0"):
         region = Kraj.objects.get(name = "Polska")
@@ -237,8 +217,12 @@ def getPieChart(request, lvl , name1):
         region = Wojewodztwo.objects.get(name = name1)
     if (lvl == "2") :
         region = Okreg.objects.get(name = name1)
-    if (lvl == "3") :
-        region = Gmina.objects.get(name = name1)
+    return region;
+
+
+
+def getPieChart(request, lvl , name1 , okreg):
+    region = getQ(lvl,name1,okreg);
     q = region.buildQ()
 
     getCandidatesAndVotes(q)
@@ -262,16 +246,8 @@ def getPieChart(request, lvl , name1):
     json_data = json.dumps(data, sort_keys=True, indent=4)
     return JsonResponse(dict(data),status=status.HTTP_200_OK)
 
-def getSubunits(request, lvl , name1):
-    region = Kraj.objects.get(name = "Polska")
-    if (lvl == "0"):
-        region = Kraj.objects.get(name = "Polska")
-    if (lvl == "1") :
-        region = Wojewodztwo.objects.get(name = name1)
-    if (lvl == "2") :
-        region = Okreg.objects.get(name = name1)
-    if (lvl == "3") :
-        region = Gmina.objects.get(name = name1)
+def getSubunits(request, lvl , name1 , okreg):
+    region = getQ(lvl,name1,okreg);
     q = region.buildQ()
     vals =  list(region.subunit().objects.filter(q).values("name","max_votes" , "valid_votes"))
     json_data = {}

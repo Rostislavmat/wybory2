@@ -4,6 +4,7 @@
         <title>Wybory</title>
         <meta charset='utf-8'>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="rest.js"></script>
             <script type="text/javascript">
                 google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
@@ -45,22 +46,12 @@
                     Frekwencja
                 </th>
             </tr>
-
-            <tr>
-                <td>
-                    <a href="../../{{ w.path() }}">{{ w.name }}</a>
-                </td>
-                <td class="responsive_hide">
-                    {{ w.max_votes }}
-                </td>
-                <td class="responsive_hide">
-                    {{ w.valid_votes }}
-                </td>
-                <td>
-                    {{ "%.2f" % (w.valid_votes / w.max_votes * 100) | float }}%
-                </td>
-            </tr>
-
         </table>
+
+        <form id="myForm">
+          Nazwa: <input type="text" name="nazwa"><br><br>
+          <input type="button" onclick="Search()" value="Submit form">
+        </form>
+
     </body>
 </html>
