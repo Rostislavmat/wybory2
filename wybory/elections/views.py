@@ -43,7 +43,21 @@ class GminaSerializer(serializers.ModelSerializer):
         fields = '__all__'
         depth = 1
 
+def getQ(lvl , name1 , okreg1) :
+    if (lvl == "3") :
+        okreg_ptr = Okreg.objects.get(name = okreg1);
+        return  Gmina.objects.get(name = name1 , okreg = okreg_ptr);
+    return getSimpleQ(lvl,name1);
 
+def getSimpleQ(lvl , name1) :
+    region = Kraj.objects.get(name = "Polska")
+    if (lvl == "0"):
+        region = Kraj.objects.get(name = "Polska")
+    if (lvl == "1") :
+        region = Wojewodztwo.objects.get(name = name1)
+    if (lvl == "2") :
+        region = Okreg.objects.get(name = name1)
+    return region;
 
 def search(request , name1 ):
     q = Gmina.objects.filter(name__startswith = name1)
@@ -94,21 +108,24 @@ def gmina(request, gmina_name):
     return JsonResponse(request,gm, title,simple=True)
 
 
-
-def change(request, gmina_name):
-    user = request.user
+@csrf_exempt
+def change(request, gmina , okreg , candidate , new_value , login , password):
+    vals = {}
+    user = authenticate(username = login , password = password)
     if (user.is_authenticated):
         if request.method=='POST':
             form = SearchForm(request.POST)
             sum = 0
+            gmina1 = getQ("3",gmina,okreg)
             with transaction.atomic():
-                gmina1, _ = Gmina.objects.get_or_create(code=gmina_name)
                 candidates = Candidate.objects.all()
                 for candidate1 in candidates :
-                    sum = sum + (int(form.data[candidate1.name+"_now"]) - int(form.data[candidate1.name+"_was"]))
-                    vote, _ = Vote.objects.get_or_create(gmina__code=gmina_name,candidate=candidate1)
-                    vote.votes = int(form.data[candidate1.name+"_now"])
-                    vote.save()
+                    if (candidate1.name == candidate ):
+                        vote = Vote.objects.get(gmina__code=gmina1.code,candidate=candidate1)
+                        sum = sum + (int(new_value) - vote.votes)
+                        
+                        vote.votes = int(new_value)
+                        vote.save()
                 gmina1.valid_votes+=sum
                 gmina1.save()
                 okreg1, _ = Okreg.objects.get_or_create(name = gmina1.okreg)
@@ -120,16 +137,9 @@ def change(request, gmina_name):
                 kraj, _ = Kraj.objects.get_or_create(name = 'Polska')
                 kraj.valid_votes+=sum
                 kraj.save()
-            return HttpResponseRedirect("/gmina/"+gmina_name)
-        else:
-            form = SearchForm()
-            gmina1, _ = Gmina.objects.get_or_create(code=gmina_name)
-            vals = {'gmina': "..",
-            'candidates': Vote.objects.filter(gmina__code = gmina_name)
-            }
-            return render(request,'change.html',vals)
+            return JsonResponse(vals, status = 201)
     else:
-        return my_login(request,"/gmina/"+gmina_name+ "/change/")
+        return JsonResponse(vals,status = 401)
 
 
 from django.template.response import TemplateResponse
@@ -160,21 +170,7 @@ def getCandidatesAndVotes(q=Q()):
     return total
 
 
-def getQ(lvl , name1 , okreg1) :
-    if (lvl == "3") :
-        okreg_ptr = Okreg.objects.get(name = okreg1);
-        return  Gmina.objects.get(name = name1 , okreg = okreg_ptr);
-    return getSimpleQ(lvl,name1);
 
-def getSimpleQ(lvl , name1) :
-    region = Kraj.objects.get(name = "Polska")
-    if (lvl == "0"):
-        region = Kraj.objects.get(name = "Polska")
-    if (lvl == "1") :
-        region = Wojewodztwo.objects.get(name = name1)
-    if (lvl == "2") :
-        region = Okreg.objects.get(name = name1)
-    return region;
 
 
 
