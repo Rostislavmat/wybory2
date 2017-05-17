@@ -31,7 +31,7 @@ function drawChart(data) {
 function drawPieChart(data) {
     var data = new google.visualization.DataTable(data);
     var options = {
-        title: 'Podzia³ g³osów',
+        title: 'Podzia\u0142 g\u0142os\u00F3w',
         pieHole: 0.1,
         pieResidueSliceLabel: "Pozostali",
         legend: { position: 'left', maxLines: 100 },
@@ -125,6 +125,43 @@ function Logout() {
     login = "";
     document.getElementById("acc").firstChild.textContent = "loser";
 }
+
+function Change() {
+    if (lvl != 3) {
+        alert("NOT A GMINA");
+        return;
+    }
+    else {
+        if (login == "") {
+            alert("LOGIN FIRST");
+            return;
+        }
+        else {
+            var cand = document.getElementsByName("candidate")[0].value;
+            var val = document.getElementsByName("new_value")[0].value;
+            var req = new XMLHttpRequest();
+            req.open("POST", "http://localhost:8000/change/" + name + "/" + okreg + "/" + cand + "/" + val + "/" + username + "/" + pass + "/");
+            req.addEventListener("error", function () {
+                alert("Error: " + this.responseText);
+            });
+            req.addEventListener("load", function () {
+                //displayQuestions(this.responseText);
+                if (this.status != 201) {
+                    alert("ERROR");
+                }
+                else {
+                    alert("CHANGE COMMITED");
+                }
+
+                //document.body.innerHTML = unicodeToChar(this.responseText);
+                //localStorage.setItem("questions", this.responseText);
+                //document.getElementById("status").firstChild.textContent = "online";
+            });
+            req.send();
+        }
+    }
+}
+
 function Log() {
     var login = document.getElementsByName("login")[0].value;
     var password = document.getElementsByName("password")[0].value;
@@ -339,7 +376,7 @@ function setstats() {
     if (previousStats != null) {
         var data = JSON.parse(previousStats);
         document.getElementById("h1").textContent = "Wybory on level " + lvl + " at " + name;
-        document.getElementById("Kart").textContent = "Kart wa¿nych : " + data["valid_votes"];
+        document.getElementById("Kart").textContent = "Kart wa\u017Cnych : " + data["valid_votes"];
         document.getElementById("Fre").textContent = "Frekwencja : " +
             (100 * data["valid_votes"] / data["max_votes"]).toPrecision(4) + "%";
         document.getElementById("Upr").textContent = "Uprawnionych : " + data["max_votes"];
