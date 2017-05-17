@@ -1,12 +1,56 @@
 var lvl, name = "Polska", okreg = "0", flag = 0, username = "" , pass ="";
+var login_on = 0, search_on = 0 , change_on = 0;
 
 google.charts.load("current", { packages: ["corechart", "table", "geochart"] });
+
+
+function start_search()
+{
+    if (search_on == 0)
+    {
+        document.getElementById("search").style.display = "flex";
+        document.getElementById("table2").style.display = "table";
+        search_on = 1;
+    }
+    else
+    {
+        $("tr").remove(".search_del");
+        localStorage.removeItem("search");
+        document.getElementById("search").style.display = "none";
+        document.getElementById("table2").style.display = "none";
+        search_on = 0;
+    }
+}
+
+function start_login() {
+    if (search_on == 0) {
+        document.getElementById("login").style.display = "flex";
+        search_on = 1;
+    }
+    else {
+        document.getElementById("login").style.display = "none";
+        search_on = 0;
+    }
+}
+
+function start_change() {
+    if (search_on == 0) {
+        document.getElementById("av_names").style.display = "table";
+        document.getElementById("change").style.display = "flex";
+        search_on = 1;
+    }
+    else {
+        document.getElementById("change").style.display = "none";
+        document.getElementById("av_names").style.display = "none";
+        search_on = 0;
+    }
+}
 
 function reset() {
     lvl = 0;
     name = "Polska";
     okreg = "0";
-    document.getElementById("Mapa").style.visibility = "visible";
+    document.getElementById("Mapa").style.display = "flex";
     init();
 }
 
@@ -66,6 +110,7 @@ function drawSearch()
         var result = JSON.parse(previousData);
         //var sub = result["result"];
         var table = document.getElementById("table2");
+
         for (i = 0; i < result.length; i++) {
 
             var tr = document.createElement('tr');
@@ -73,7 +118,7 @@ function drawSearch()
             h1.appendChild(document.createTextNode(result[i].name));
             tr.appendChild(h1);
             var h2 = document.createElement('td');
-            h2.style.visibility = "hidden";
+            h2.style.display = "none";
             h2.appendChild(document.createTextNode(result[i].okreg.name));
             tr.appendChild(h2);
             var createClickHandler =
@@ -92,10 +137,6 @@ function drawSearch()
             table.appendChild(tr);
         }
     }
-    else {
-        refresh();
-    }
-
 
 }
 
@@ -121,6 +162,38 @@ function Search()
     });
     req.send();
 }
+
+function GetCandidates() {
+    var req = new XMLHttpRequest();
+    req.open("GET", "http://localhost:8000/cand/");
+    req.addEventListener("error", function () {
+        alert("Error: " + this.responseText);
+        document.getElementById("status").firstChild.textContent = "offline";
+    });
+    req.addEventListener("load", function () {
+        //displayQuestions(this.responseText);
+        var data = JSON.parse(this.responseText);
+        var table = document.getElementById("av_names");
+        var tr_h = document.createElement('tr');
+        var h_h = document.createElement('th');
+        h_h.appendChild(document.createTextNode("imiona kandydat\u00F3w : "));
+        tr_h.appendChild(h_h);
+        table.appendChild(h_h);
+        for (i = 0; i < data.length; i++) {
+
+            var tr = document.createElement('tr');
+            var h1 = document.createElement('td');
+            h1.appendChild(document.createTextNode(data[i].name));
+            tr.appendChild(h1);
+            table.appendChild(tr);
+        }
+        //document.body.innerHTML = unicodeToChar(this.responseText);
+        //localStorage.setItem("questions", this.responseText);
+        //document.getElementById("status").firstChild.textContent = "online";
+    });
+    req.send();
+}
+
 function Logout() {
     login = "";
     document.getElementById("acc").firstChild.textContent = "loser";
@@ -302,7 +375,7 @@ function nextStage(x) {
     }
     if (lvl != 0) 
     {
-        document.getElementById("Mapa").style.visibility = "hidden";
+        document.getElementById("Mapa").style.display = "none";
         document.getElementById("Mapa").style.height = "0";
     }
     name = x;
@@ -405,9 +478,22 @@ function ask() {
 
 
 function init() {
+    login_on = 0;
+    search_on = 0;
+    change_on = 0;
+    name = "Polska";
+    okreg = "0";
     lvl = 0;
+    document.getElementById("Mapa").style.display = "flex";
+    document.getElementById("search").style.display = "none";
+    document.getElementById("av_names").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("change").style.display = "none";
+    document.getElementById("table2").style.display = "none";
+    document.getElementById("table2").style.height = "0";
     if (flag == 0)
     {
+        GetCandidates();
         flag = 1;
         Update();
     }

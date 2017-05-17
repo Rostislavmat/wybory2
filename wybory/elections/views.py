@@ -22,6 +22,11 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+class CandidateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Candidate
+        fields = '__all__'
+
 class KrajSerializer(serializers.ModelSerializer):
     class Meta:
         model = Kraj
@@ -58,6 +63,10 @@ def getSimpleQ(lvl , name1) :
     if (lvl == "2") :
         region = Okreg.objects.get(name = name1)
     return region;
+
+def candidates(request) :
+    q = Candidate.objects.all();
+    return JsonResponse((CandidateSerializer(q,many = True).data),safe = False)
 
 def search(request , name1 ):
     q = Gmina.objects.filter(name__startswith = name1)

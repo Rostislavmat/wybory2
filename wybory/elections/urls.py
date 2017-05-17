@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^change/(?P<gmina>[^/]+)/(?P<okreg>[^/]+)/(?P<candidate>[^/]+)/(?P<new_value>[^/]+)/(?P<login>[^/]+)/(?P<password>[^/]+)/$', views.change),
     url(r'^login/(?P<login1>[^/]+)/(?P<password1>[^/]+)/$', views.my_login),
     url(r'^search/(?P<name1>[^/]+)/$', views.search),
+    url(r'^cand', views.candidates),
     url(r'test',views.test),
     url(r'map',views.buildMapData),
 ]
